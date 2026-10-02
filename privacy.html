@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="How InCAD collects, uses and protects personal information gathered through this website and our training programs."
+    />
+    <meta
+      property="og:title"
+      content="Privacy Policy | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="How we collect, use, share and protect your personal information."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   Privacy Policy Page — page-specific styles (same legal layout
+   pattern as terms.html, kept in sync for consistency).
+   ================================================================ */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 70px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 12px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.05rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .updated-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.84rem;
+        color: #fff;
+        margin-top: 22px;
+      }
+      .page-hero .updated-badge i {
+        color: var(--gold-soft);
+      }
+
+      /* ---------- Legal layout ---------- */
+      .legal-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .legal-toc {
+        position: sticky;
+        top: 150px;
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        padding: 22px 20px;
+        background: var(--paper);
+      }
+      .legal-toc p {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+      .legal-toc ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .legal-toc a {
+        display: block;
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-size: 0.86rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .legal-toc a:hover {
+        background: var(--surface);
+        color: var(--purple);
+      }
+      .legal-toc a.is-active {
+        background: var(--surface);
+        color: var(--purple);
+        font-weight: 700;
+      }
+
+      .legal-content h2 {
+        font-size: 1.3rem;
+        margin: 0 0 14px;
+        padding-top: 8px;
+        scroll-margin-top: 150px;
+      }
+      .legal-content section {
+        margin-bottom: 44px;
+        border-bottom: 1px solid var(--border-cool);
+        padding-bottom: 36px;
+      }
+      .legal-content section:last-child {
+        border-bottom: none;
+      }
+      .legal-content p {
+        margin-bottom: 14px;
+        max-width: 70ch;
+      }
+      .legal-content ul {
+        margin: 0 0 14px;
+        padding-left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 70ch;
+      }
+      .legal-content ul li {
+        color: var(--muted);
+        font-size: 0.96rem;
+        list-style: disc;
+      }
+      .legal-content .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--purple);
+        color: #fff;
+        font-family: var(--font-head);
+        font-size: 0.9rem;
+        margin-right: 10px;
+        flex: 0 0 auto;
+      }
+      .legal-content .section-title-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+      .legal-content .section-title-row h2 {
+        margin: 0;
+        padding: 0;
+      }
+      .legal-note {
+        background: var(--paper);
+        border-left: 4px solid var(--gold);
+        border-radius: 0 var(--radius-s) var(--radius-s) 0;
+        padding: 16px 20px;
+        font-size: 0.9rem;
+        color: var(--ink);
+      }
+
+      /* ---------- Data table ---------- */
+      .data-table-wrap {
+        overflow-x: auto;
+        margin-bottom: 14px;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 520px;
+      }
+      .data-table th {
+        text-align: left;
+        background: var(--paper);
+        padding: 12px 16px;
+        font-family: var(--font-head);
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--purple-deep);
+        border-bottom: 2px solid var(--border-cool);
+      }
+      .data-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border-cool);
+        font-size: 0.9rem;
+        color: var(--muted);
+        vertical-align: top;
+      }
+
+      @media (max-width: 960px) {
+        .legal-layout {
+          grid-template-columns: 1fr;
+        }
+        .legal-toc {
+          position: static;
+          margin-bottom: 12px;
+        }
+        .page-hero {
+          padding: 130px 0 60px;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Privacy Policy</span>
+          </nav>
+          <h1>Privacy Policy</h1>
+          <p>
+            This policy explains what personal information InCAD collects
+            through this website and our programs, how we use it, and the
+            choices you have. It should be read together with our
+            <a
+              href="terms.html"
+              style="color: var(--gold-soft); text-decoration: underline"
+              >Terms of Service</a
+            >.
+          </p>
+          <span class="updated-badge"
+            ><i class="fa-regular fa-calendar"></i>Last updated: 6 September
+            2026</span
+          >
+        </div>
+      </section>
+
+      <!-- Legal content -->
+      <section>
+        <div class="container legal-layout">
+          <nav class="legal-toc" id="legal-toc" aria-label="Table of contents">
+            <p>On this page</p>
+            <ul>
+              <li><a href="#overview">1. Overview</a></li>
+              <li>
+                <a href="#information-we-collect">2. Information We Collect</a>
+              </li>
+              <li><a href="#how-we-use">3. How We Use Information</a></li>
+              <li>
+                <a href="#cookies">4. Cookies &amp; Similar Technologies</a>
+              </li>
+              <li><a href="#sharing">5. How We Share Information</a></li>
+              <li><a href="#security">6. Data Security</a></li>
+              <li><a href="#retention">7. Data Retention</a></li>
+              <li><a href="#your-rights">8. Your Rights</a></li>
+              <li><a href="#children">9. Children's Privacy</a></li>
+              <li>
+                <a href="#transfers"
+                  >10. Regional &amp; International Programs</a
+                >
+              </li>
+              <li><a href="#changes">11. Changes to This Policy</a></li>
+              <li><a href="#contact-us">12. Contact Us</a></li>
+            </ul>
+          </nav>
+
+          <div class="legal-content">
+            <section id="overview" data-reveal>
+              <div class="section-title-row">
+                <span class="num">1</span>
+                <h2>Overview</h2>
+              </div>
+              <p>
+                InCAD — Institute for Capacity Development ("InCAD", "we", "us")
+                respects your privacy and is committed to protecting the
+                personal information of everyone who visits this website,
+                enrolls in a program, or otherwise interacts with us. This
+                policy is intended to comply with the principles of Kenya's Data
+                Protection Act, 2019.
+              </p>
+              <p>
+                By using this website or enrolling in an InCAD program, you
+                consent to the collection and use of information as described in
+                this policy.
+              </p>
+            </section>
+
+            <section id="information-we-collect" data-reveal>
+              <div class="section-title-row">
+                <span class="num">2</span>
+                <h2>Information We Collect</h2>
+              </div>
+              <p>We collect information in the following ways:</p>
+              <div class="data-table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Examples</th>
+                      <th>When it's collected</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Contact details</td>
+                      <td>
+                        Name, email, phone number, organization, job title
+                      </td>
+                      <td>
+                        Enquiry forms, newsletter sign‑up, program enrollment
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Program information</td>
+                      <td>
+                        Programs applied for, sector, preferred dates/venue
+                      </td>
+                      <td>Enrollment and consultation requests</td>
+                    </tr>
+                    <tr>
+                      <td>Communications</td>
+                      <td>
+                        Messages you send us, feedback, testimonials you provide
+                      </td>
+                      <td>Contact form, email, phone</td>
+                    </tr>
+                    <tr>
+                      <td>Technical data</td>
+                      <td>IP address, browser type, pages visited</td>
+                      <td>Automatically, via standard web server logs</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                We do not knowingly collect sensitive personal information (such
+                as health or financial account details) through this website
+                beyond what you voluntarily share with us, for example in a
+                message describing your organization's training needs.
+              </p>
+            </section>
+
+            <section id="how-we-use" data-reveal>
+              <div class="section-title-row">
+                <span class="num">3</span>
+                <h2>How We Use Information</h2>
+              </div>
+              <ul>
+                <li>
+                  To respond to enquiries and process program enrollment or
+                  consultation requests.
+                </li>
+                <li>
+                  To communicate program dates, venue changes, and other updates
+                  relevant to a program you've enrolled in.
+                </li>
+                <li>
+                  To send newsletter updates about new programs, where you have
+                  subscribed — you can unsubscribe at any time.
+                </li>
+                <li>
+                  To improve this website and our program offerings based on
+                  aggregated, non‑identifying usage patterns.
+                </li>
+                <li>
+                  To meet legal, regulatory, or contractual obligations,
+                  including those tied to performance contracting engagements.
+                </li>
+              </ul>
+            </section>
+
+            <section id="cookies" data-reveal>
+              <div class="section-title-row">
+                <span class="num">4</span>
+                <h2>Cookies &amp; Similar Technologies</h2>
+              </div>
+              <p>
+                This website may use minimal cookies or local browser storage to
+                remember basic preferences (for example, a filter you selected
+                on the program calendar) during your visit. We do not currently
+                use third‑party advertising or tracking cookies. If that
+                changes, this policy will be updated accordingly.
+              </p>
+            </section>
+
+            <section id="sharing" data-reveal>
+              <div class="section-title-row">
+                <span class="num">5</span>
+                <h2>How We Share Information</h2>
+              </div>
+              <p>
+                We do not sell your personal information. We may share
+                information in limited circumstances:
+              </p>
+              <ul>
+                <li>
+                  With facilitators or consultants directly delivering a program
+                  you've enrolled in, where necessary to deliver that program.
+                </li>
+                <li>
+                  With service providers who support our operations (for
+                  example, email delivery or hosting providers), under
+                  confidentiality obligations.
+                </li>
+                <li>
+                  Where required by law, regulation, or a valid legal process.
+                </li>
+                <li>
+                  With a sponsoring or partner organization, where you've
+                  enrolled through them and they require confirmation of
+                  participation.
+                </li>
+              </ul>
+            </section>
+
+            <section id="security" data-reveal>
+              <div class="section-title-row">
+                <span class="num">6</span>
+                <h2>Data Security</h2>
+              </div>
+              <p>
+                We take reasonable technical and organizational measures to
+                protect personal information against unauthorized access,
+                alteration, disclosure, or destruction. However, no method of
+                transmission over the internet is completely secure, and we
+                cannot guarantee absolute security.
+              </p>
+            </section>
+
+            <section id="retention" data-reveal>
+              <div class="section-title-row">
+                <span class="num">7</span>
+                <h2>Data Retention</h2>
+              </div>
+              <p>
+                We retain personal information for as long as necessary to
+                fulfill the purposes described in this policy — for example, for
+                the duration of an active program relationship, plus a
+                reasonable period afterward for record‑keeping, reporting, or
+                legal purposes. Newsletter contact details are retained until
+                you unsubscribe.
+              </p>
+            </section>
+
+            <section id="your-rights" data-reveal>
+              <div class="section-title-row">
+                <span class="num">8</span>
+                <h2>Your Rights</h2>
+              </div>
+              <p>Subject to applicable law, you have the right to:</p>
+              <ul>
+                <li>
+                  Request access to the personal information we hold about you.
+                </li>
+                <li>
+                  Request correction of inaccurate or incomplete information.
+                </li>
+                <li>
+                  Request deletion of your information, where it is no longer
+                  needed for the purposes it was collected.
+                </li>
+                <li>
+                  Withdraw consent to marketing communications (such as the
+                  newsletter) at any time.
+                </li>
+                <li>Object to certain processing of your information.</li>
+              </ul>
+              <p>
+                To exercise any of these rights, contact us using the details in
+                Section 12 below.
+              </p>
+            </section>
+
+            <section id="children" data-reveal>
+              <div class="section-title-row">
+                <span class="num">9</span>
+                <h2>Children's Privacy</h2>
+              </div>
+              <p>
+                Our website and programs are directed at organizations and
+                working professionals. We do not knowingly collect personal
+                information from children. If you believe a child has provided
+                us with personal information, please contact us so we can remove
+                it.
+              </p>
+            </section>
+
+            <section id="transfers" data-reveal>
+              <div class="section-title-row">
+                <span class="num">10</span>
+                <h2>Regional &amp; International Programs</h2>
+              </div>
+              <p>
+                Some InCAD programs run in Tanzania and Uganda. Where you enroll
+                in a regional cohort, limited information necessary for that
+                program (such as your name and organization) may be shared with
+                the local venue or co‑facilitating partner for logistics
+                purposes, under the same confidentiality expectations described
+                in this policy.
+              </p>
+            </section>
+
+            <section id="changes" data-reveal>
+              <div class="section-title-row">
+                <span class="num">11</span>
+                <h2>Changes to This Policy</h2>
+              </div>
+              <p>
+                We may update this Privacy Policy from time to time. The "Last
+                updated" date at the top of this page reflects the most recent
+                revision. We encourage you to review this page periodically.
+              </p>
+            </section>
+
+            <section id="contact-us" data-reveal>
+              <div class="section-title-row">
+                <span class="num">12</span>
+                <h2>Contact Us</h2>
+              </div>
+              <p>
+                For questions about this policy or to exercise your data rights,
+                reach out:
+              </p>
+              <div class="legal-note">
+                <p style="margin-bottom: 6px">
+                  <i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 –
+                  00621, Nairobi, Kenya
+                </p>
+                <p style="margin-bottom: 6px">
+                  <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp;
+                  +254 722 741 293
+                </p>
+                <p style="margin-bottom: 0">
+                  <i class="fa-solid fa-envelope"></i>
+                  <a href="mailto:info@incad.org">info@incad.org</a>
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-shield-halved cta-icon"></i>
+          <h2>Have a question about your data?</h2>
+          <p>
+            Reach out and we'll walk you through exactly what we hold and why.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg">Talk to us</a>
+            <a href="terms.html" class="btn btn-ghost-light"
+              >See Terms of Service</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // Table-of-contents scrollspy — page-local
+      (function () {
+        const links = Array.from(document.querySelectorAll("#legal-toc a"));
+        const sections = links
+          .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
+          .filter(Boolean);
+        if (!sections.length || !("IntersectionObserver" in window)) return;
+        const spy = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+                links.forEach((a) =>
+                  a.classList.toggle(
+                    "is-active",
+                    a.getAttribute("href") === "#" + id,
+                  ),
+                );
+              }
+            });
+          },
+          { rootMargin: "-30% 0px -60% 0px", threshold: 0 },
+        );
+        sections.forEach((s) => spy.observe(s));
+      })();
+    </script>
+  </body>
+</html>

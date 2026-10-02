@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="Organizations and institutions that have partnered with InCAD for training, research and consultancy."
+    />
+    <meta
+      property="og:title"
+      content="Portfolio | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="A snapshot of the government agencies, counties, regulators and corporates InCAD has partnered with."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   Portfolio Page — page-specific styles only (grid/modal/sectors
+   already live in the shared styles.css.
+   ================================================================ */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 90px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+        margin-bottom: 14px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.1rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .hero-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .page-hero .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.86rem;
+        color: #fff;
+      }
+      .page-hero .hero-badge i {
+        color: var(--gold-soft);
+      }
+
+      .portfolio-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .impact-stats {
+        background: var(--navy);
+        border-radius: var(--radius-m);
+        padding: 48px 32px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        text-align: center;
+        color: #fff;
+      }
+      .impact-stats div span {
+        display: block;
+        font-family: var(--font-head);
+        font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+        color: var(--gold-soft);
+        font-weight: 600;
+      }
+      .impact-stats div small {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 960px) {
+        .page-hero {
+          padding: 130px 0 70px;
+        }
+        .impact-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Portfolio</span>
+          </nav>
+          <h1>Organizations that have trusted InCAD</h1>
+          <p>
+            A snapshot of the government agencies, counties, regulators and
+            corporates we've partnered with for training, research and
+            consultancy, just click any organization to see what we delivered.
+          </p>
+          <div class="hero-badges">
+            <span class="hero-badge"
+              ><i class="fa-solid fa-building-columns"></i>16+
+              organizations</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-layer-group"></i>7+ sectors</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-calendar-check"></i>15+ years</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Logo grid -->
+      <section id="clients-grid">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Portfolio</p>
+            <h2>Organizations we have served</h2>
+            <p class="section-sub">
+              A snapshot of our partnerships and the impact we have delivered.
+              Select any organization for a closer look.
+            </p>
+          </div>
+
+          <div class="portfolio-filters cal-filters" data-reveal>
+            <button class="cal-pill is-active" data-filter="all">
+              All Partners
+            </button>
+            <button class="cal-pill" data-filter="workshop">
+              Training Workshops
+            </button>
+            <button class="cal-pill" data-filter="capacity">
+              Capacity Building
+            </button>
+          </div>
+
+          <div class="logo-grid" data-reveal>
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/ira-logo.png"
+              data-name="Insurance Regulatory Authority (IRA)"
+              data-desc="Alcohol and drug abuse, occupational safety and health, disability and gender mainstreaming."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/ira-logo.png"
+                  alt="Insurance Regulatory Authority logo"
+              /></span>
+              <span class="logo-tile-name">Insurance Regulatory Authority</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="capacity"
+              data-full="./images/clients/safaricom-sacco.png"
+              data-name="Safaricom SACCO Ltd"
+              data-desc="Skills gap analysis, job evaluation and performance management."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/safaricom-sacco.png"
+                  alt="Safaricom SACCO logo"
+              /></span>
+              <span class="logo-tile-name">Safaricom SACCO Ltd</span>
+              <span class="logo-tile-tag">Capacity Building</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/psc-logo.png"
+              data-name="Public Service Commission"
+              data-desc="Records management, HIV/AIDS awareness, customer care and more."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/psc-logo.png"
+                  alt="Public Service Commission logo"
+              /></span>
+              <span class="logo-tile-name">Public Service Commission</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/jkuat-logo.png"
+              data-name="Jomo Kenyatta University of Agriculture &amp; Technology"
+              data-desc="Alcohol and substance abuse, HIV/AIDS."
+            >
+              <span class="logo-tile-img"
+                ><img src="./images/clients/jkuat-logo.png" alt="JKUAT logo"
+              /></span>
+              <span class="logo-tile-name">JKUAT</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/lap-fund-logo.png"
+              data-name="Local Authorities Pension Fund (LAPFUND)"
+              data-desc="HIV/AIDS, alcohol and substance abuse."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/lap-fund-logo.png"
+                  alt="LAPFUND logo"
+              /></span>
+              <span class="logo-tile-name">LAPFUND</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/kura-logo.png"
+              data-name="Kenya Urban Roads Authority (KURA)"
+              data-desc="HIV/AIDS, alcohol and drug abuse."
+            >
+              <span class="logo-tile-img"
+                ><img src="./images/clients/kura-logo.png" alt="KURA logo"
+              /></span>
+              <span class="logo-tile-name">KURA</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/nema-logo.png"
+              data-name="National Environment Management Authority (NEMA)"
+              data-desc="Gender and disability mainstreaming, ADA compliance."
+            >
+              <span class="logo-tile-img"
+                ><img src="./images/clients/nema-logo.png" alt="NEMA logo"
+              /></span>
+              <span class="logo-tile-name">NEMA</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="capacity"
+              data-full="./images/clients/tourism-fund-logo.png"
+              data-name="Tourism Fund"
+              data-desc="Occupational safety and health, gender baseline survey, disability and gender mainstreaming, records management."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/tourism-fund-logo.png"
+                  alt="Tourism Fund logo"
+              /></span>
+              <span class="logo-tile-name">Tourism Fund</span>
+              <span class="logo-tile-tag">Capacity Building</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/nita-logo.png"
+              data-name="National Industrial Training Authority (NITA)"
+              data-desc="Gender and disability mainstreaming, HIV/AIDS, records management."
+            >
+              <span class="logo-tile-img"
+                ><img src="./images/clients/nita-logo.png" alt="NITA logo"
+              /></span>
+              <span class="logo-tile-name">NITA</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/knec-logo.png"
+              data-name="Kenya National Examinations Council (KNEC)"
+              data-desc="Customer care."
+            >
+              <span class="logo-tile-img"
+                ><img src="./images/clients/knec-logo.png" alt="KNEC logo"
+              /></span>
+              <span class="logo-tile-name">KNEC</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/postal-corporation-of-kenya.png"
+              data-name="Postal Corporation of Kenya"
+              data-desc="Governance audit, HIV/AIDS awareness, ADA compliance."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/postal-corporation-of-kenya.png"
+                  alt="Postal Corporation of Kenya logo"
+              /></span>
+              <span class="logo-tile-name">Postal Corporation of Kenya</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/kcaa-logo.png"
+              data-name="Kenya Civil Aviation Authority (KCAA)"
+              data-desc="Occupational safety and health, gender and disability mainstreaming, HIV/AIDS, ADA compliance."
+            >
+              <span class="logo-tile-img"
+                ><img src="./images/clients/kcaa-logo.png" alt="KCAA logo"
+              /></span>
+              <span class="logo-tile-name">KCAA</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="capacity"
+              data-full="./images/clients/baringo-county-logo.png"
+              data-name="Baringo County Government"
+              data-desc="Pre‑retirement planning, HR, customer care, skills audit."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/baringo-county-logo.png"
+                  alt="Baringo County logo"
+              /></span>
+              <span class="logo-tile-name">Baringo County</span>
+              <span class="logo-tile-tag">Capacity Building</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="capacity"
+              data-full="./images/clients/gdc-logo.png"
+              data-name="Geothermal Development Company (GDC)"
+              data-desc="Kenya Sign Language (KSL) training."
+            >
+              <span class="logo-tile-img"
+                ><img src="./images/clients/gdc-logo.png" alt="GDC logo"
+              /></span>
+              <span class="logo-tile-name">GDC</span>
+              <span class="logo-tile-tag">Capacity Building</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/ca-logo.png"
+              data-name="Communications Authority of Kenya (CA)"
+              data-desc="Gender and disability mainstreaming."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/ca-logo.png"
+                  alt="Communications Authority of Kenya logo"
+              /></span>
+              <span class="logo-tile-name">Communications Authority</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+
+            <button
+              class="gallery-item"
+              data-category="workshop"
+              data-full="./images/clients/livestock-development-logo.png"
+              data-name="State Department for Livestock Development"
+              data-desc="Disability mainstreaming."
+            >
+              <span class="logo-tile-img"
+                ><img
+                  src="./images/clients/livestock-development-logo.png"
+                  alt="Livestock Development logo"
+              /></span>
+              <span class="logo-tile-name">Livestock Development</span>
+              <span class="logo-tile-tag">Workshop</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="gallery-modal" class="gallery-modal" aria-hidden="true">
+          <div class="modal-overlay"></div>
+          <div
+            class="modal-inner"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+          >
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <button class="modal-nav prev" aria-label="Previous">
+              &lsaquo;
+            </button>
+            <div class="modal-body">
+              <div class="modal-photo-wrap">
+                <img class="modal-photo" src="" alt="" />
+              </div>
+              <div class="modal-info">
+                <h3 id="modal-title" class="modal-title"></h3>
+                <p class="modal-desc"></p>
+              </div>
+            </div>
+            <button class="modal-nav next" aria-label="Next">&rsaquo;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact stats -->
+      <section class="bg-soft">
+        <div class="container">
+          <div class="impact-stats" data-reveal>
+            <div>
+              <span data-counter="16">0</span
+              ><small>+ Organizations served</small>
+            </div>
+            <div>
+              <span data-counter="7">0</span><small>+ Sectors covered</small>
+            </div>
+            <div>
+              <span data-counter="15">0</span><small>+ Years of delivery</small>
+            </div>
+            <div>
+              <span data-counter="3">0</span><small>+Countries reached</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sectors served -->
+      <section id="sectors-served">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Reach</p>
+            <h2>Sectors we serve</h2>
+          </div>
+          <div class="sector-grid" data-reveal>
+            <span class="sector-chip"
+              ><i class="fa-solid fa-landmark"></i>Government agencies</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-city"></i>County governments</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-graduation-cap"></i>Educational
+              institutions</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-hand-holding-dollar"></i>SACCOs</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-gavel"></i>Regulatory authorities</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-building-columns"></i>Public sector
+              organizations</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-store"></i>SMEs and entrepreneurs</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-star cta-icon"></i>
+          <h2>Become our next success story</h2>
+          <p>Partner with InCAD to strengthen your organization's capacity.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg"
+              >Start a conversation</a
+            >
+            <a href="services.html" class="btn btn-ghost-light"
+              >Explore our services</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

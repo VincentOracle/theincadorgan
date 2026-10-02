@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="Terms of Service governing use of the InCAD website and enrollment in InCAD training programs."
+    />
+    <meta
+      property="og:title"
+      content="Terms of Service | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="The terms that govern use of this website and enrollment in InCAD programs."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   Terms of Service Page — page-specific styles only.
+   ================================================================ */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 70px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-bottom: 12px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.05rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .updated-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.84rem;
+        color: #fff;
+        margin-top: 22px;
+      }
+      .page-hero .updated-badge i {
+        color: var(--gold-soft);
+      }
+
+      /* ---------- Legal layout ---------- */
+      .legal-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .legal-toc {
+        position: sticky;
+        top: 150px;
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        padding: 22px 20px;
+        background: var(--paper);
+      }
+      .legal-toc p {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--gold);
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+      .legal-toc ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .legal-toc a {
+        display: block;
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-size: 0.86rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .legal-toc a:hover {
+        background: var(--surface);
+        color: var(--purple);
+      }
+      .legal-toc a.is-active {
+        background: var(--surface);
+        color: var(--purple);
+        font-weight: 700;
+      }
+
+      .legal-content h2 {
+        font-size: 1.3rem;
+        margin: 0 0 14px;
+        padding-top: 8px;
+        scroll-margin-top: 150px;
+      }
+      .legal-content section {
+        margin-bottom: 44px;
+        border-bottom: 1px solid var(--border-cool);
+        padding-bottom: 36px;
+      }
+      .legal-content section:last-child {
+        border-bottom: none;
+      }
+      .legal-content p {
+        margin-bottom: 14px;
+        max-width: 70ch;
+      }
+      .legal-content ul {
+        margin: 0 0 14px;
+        padding-left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 70ch;
+      }
+      .legal-content ul li {
+        color: var(--muted);
+        font-size: 0.96rem;
+        list-style: disc;
+      }
+      .legal-content .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--purple);
+        color: #fff;
+        font-family: var(--font-head);
+        font-size: 0.9rem;
+        margin-right: 10px;
+        flex: 0 0 auto;
+      }
+      .legal-content .section-title-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+      .legal-content .section-title-row h2 {
+        margin: 0;
+        padding: 0;
+      }
+      .legal-note {
+        background: var(--paper);
+        border-left: 4px solid var(--gold);
+        border-radius: 0 var(--radius-s) var(--radius-s) 0;
+        padding: 16px 20px;
+        font-size: 0.9rem;
+        color: var(--ink);
+      }
+
+      @media (max-width: 960px) {
+        .legal-layout {
+          grid-template-columns: 1fr;
+        }
+        .legal-toc {
+          position: static;
+          margin-bottom: 12px;
+        }
+        .page-hero {
+          padding: 130px 0 60px;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Terms of Service</span>
+          </nav>
+          <h1>Terms of Service</h1>
+          <p>
+            These terms govern your use of this website and your enrollment in
+            any InCAD training program, service or event. Please read them
+            before using our site or booking a program.
+          </p>
+          <span class="updated-badge"
+            ><i class="fa-regular fa-calendar"></i>Last updated: 6 September
+            2026</span
+          >
+        </div>
+      </section>
+
+      <!-- Legal content -->
+      <section>
+        <div class="container legal-layout">
+          <nav class="legal-toc" id="legal-toc" aria-label="Table of contents">
+            <p>On this page</p>
+            <ul>
+              <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+              <li><a href="#services">2. Our Services</a></li>
+              <li><a href="#website-use">3. Use of This Website</a></li>
+              <li><a href="#enrollment">4. Program Enrollment</a></li>
+              <li><a href="#payments">5. Fees &amp; Payment</a></li>
+              <li>
+                <a href="#cancellations">6. Cancellations &amp; Rescheduling</a>
+              </li>
+              <li><a href="#conduct">7. Participant Conduct</a></li>
+              <li><a href="#ip">8. Intellectual Property</a></li>
+              <li><a href="#liability">9. Limitation of Liability</a></li>
+              <li><a href="#privacy-link">10. Privacy</a></li>
+              <li><a href="#changes">11. Changes to These Terms</a></li>
+              <li><a href="#law">12. Governing Law</a></li>
+              <li><a href="#contact-us">13. Contact Us</a></li>
+            </ul>
+          </nav>
+
+          <div class="legal-content">
+            <section id="acceptance" data-reveal>
+              <div class="section-title-row">
+                <span class="num">1</span>
+                <h2>Acceptance of Terms</h2>
+              </div>
+              <p>
+                By accessing this website (www.incad.org) or enrolling in any
+                program, service or event offered by InCAD — Institute for
+                Capacity Development ("InCAD", "we", "us", "our"), you agree to
+                be bound by these Terms of Service. If you do not agree with any
+                part of these terms, please do not use this website or enroll in
+                our programs.
+              </p>
+              <p>
+                These terms apply to all visitors, program participants,
+                sponsoring organizations and anyone who otherwise interacts with
+                our services.
+              </p>
+            </section>
+
+            <section id="services" data-reveal>
+              <div class="section-title-row">
+                <span class="num">2</span>
+                <h2>Our Services</h2>
+              </div>
+              <p>
+                InCAD provides training and capacity development, research and
+                surveys, study missions and conference tourism,
+                study/work‑abroad guidance, performance contracting support,
+                recruitment and HR consultancy, and entrepreneurship development
+                programs, as described on our
+                <a href="services.html" class="link-underline">Services page</a
+                >.
+              </p>
+              <p>
+                Program dates, venues and content on this website — including
+                the program calendar — are provided for planning purposes and
+                may change. Where a change affects a program you've enrolled in,
+                we will make reasonable efforts to notify you in advance.
+              </p>
+            </section>
+
+            <section id="website-use" data-reveal>
+              <div class="section-title-row">
+                <span class="num">3</span>
+                <h2>Use of This Website</h2>
+              </div>
+              <p>
+                You agree to use this website only for lawful purposes and in a
+                way that does not infringe the rights of, or restrict or inhibit
+                the use and enjoyment of this site by, any third party.
+                Prohibited behavior includes:
+              </p>
+              <ul>
+                <li>
+                  Attempting to gain unauthorized access to any part of the
+                  website, servers, or databases connected to it.
+                </li>
+                <li>
+                  Uploading or transmitting viruses, malware, or any other
+                  malicious code.
+                </li>
+                <li>
+                  Scraping, copying, or republishing substantial parts of this
+                  website without our written permission.
+                </li>
+                <li>
+                  Impersonating InCAD, our staff, or any other person or
+                  organization.
+                </li>
+              </ul>
+            </section>
+
+            <section id="enrollment" data-reveal>
+              <div class="section-title-row">
+                <span class="num">4</span>
+                <h2>Program Enrollment</h2>
+              </div>
+              <p>
+                Submitting an inquiry or enrollment request through this website
+                (including the "Request a Consultation" and "Send an Inquiry"
+                forms) does not guarantee a reserved place on a program until
+                confirmed in writing by InCAD.
+              </p>
+              <p>
+                You are responsible for providing accurate contact and
+                organizational details when enrolling. InCAD reserves the right
+                to decline or defer enrollment where a program is fully
+                subscribed or where the requested customization falls outside
+                our current capacity.
+              </p>
+              <p>
+                Per our standing policy, organizations are welcome to request a
+                change of programme date or venue to suit their schedule and
+                location preference; such requests are accommodated where
+                reasonably possible.
+              </p>
+            </section>
+
+            <section id="payments" data-reveal>
+              <div class="section-title-row">
+                <span class="num">5</span>
+                <h2>Fees &amp; Payment</h2>
+              </div>
+              <p>
+                Program fees, where published (for example, our monthly online
+                sessions at KSh 3,000 per session), are quoted in Kenya
+                Shillings unless stated otherwise and are subject to change
+                without notice for programs not yet booked. Fees for in‑house or
+                customized programs are agreed individually and confirmed in a
+                written proposal before delivery.
+              </p>
+              <p>
+                Payment terms, invoicing details and accepted payment methods
+                will be communicated directly to your organization upon
+                confirmation of a booking.
+              </p>
+            </section>
+
+            <section id="cancellations" data-reveal>
+              <div class="section-title-row">
+                <span class="num">6</span>
+                <h2>Cancellations &amp; Rescheduling</h2>
+              </div>
+              <p>
+                InCAD may reschedule or relocate a program where circumstances
+                require it (for example, low enrollment, venue unavailability,
+                or events outside our control), and will notify confirmed
+                participants as early as possible.
+              </p>
+              <p>
+                Cancellation terms for paid bookings — including any applicable
+                refund or credit policy — will be set out in your program's
+                specific enrollment confirmation or contract, since these can
+                vary between open‑enrollment, regional and in‑house programs.
+              </p>
+            </section>
+
+            <section id="conduct" data-reveal>
+              <div class="section-title-row">
+                <span class="num">7</span>
+                <h2>Participant Conduct</h2>
+              </div>
+              <p>
+                Participants in InCAD programs are expected to engage
+                respectfully with facilitators and fellow participants, and to
+                comply with the ethical standards described on our
+                <a href="about.html#ethics" class="link-underline"
+                  >About &amp; Ethics page</a
+                >. InCAD reserves the right to remove a participant from a
+                program in cases of harassment, misconduct, or behavior that
+                disrupts the learning environment, without refund of fees
+                already paid.
+              </p>
+            </section>
+
+            <section id="ip" data-reveal>
+              <div class="section-title-row">
+                <span class="num">8</span>
+                <h2>Intellectual Property</h2>
+              </div>
+              <p>
+                All curriculum materials, training content, website text,
+                graphics, logos and the InCAD name and mark are the property of
+                InCAD or its licensors and are protected by applicable
+                intellectual property laws. Materials provided during a training
+                program are licensed to participants for their own personal or
+                internal organizational use only, and may not be resold,
+                republished, or used to deliver a competing training program
+                without our written consent.
+              </p>
+            </section>
+
+            <section id="liability" data-reveal>
+              <div class="section-title-row">
+                <span class="num">9</span>
+                <h2>Limitation of Liability</h2>
+              </div>
+              <p>
+                InCAD provides its programs and this website on an "as is" and
+                "as available" basis. To the fullest extent permitted by law,
+                InCAD shall not be liable for any indirect, incidental, or
+                consequential loss arising from your use of this website or
+                participation in our programs, including loss of business,
+                revenue, or data.
+              </p>
+              <p>
+                Nothing in these terms limits any liability that cannot be
+                excluded or limited under applicable Kenyan law.
+              </p>
+            </section>
+
+            <section id="privacy-link" data-reveal>
+              <div class="section-title-row">
+                <span class="num">10</span>
+                <h2>Privacy</h2>
+              </div>
+              <p>
+                Our collection and use of personal information in connection
+                with this website and our programs is described in our
+                <a href="privacy.html" class="link-underline">Privacy Policy</a
+                >, which forms part of these Terms of Service.
+              </p>
+            </section>
+
+            <section id="changes" data-reveal>
+              <div class="section-title-row">
+                <span class="num">11</span>
+                <h2>Changes to These Terms</h2>
+              </div>
+              <p>
+                We may update these Terms of Service from time to time to
+                reflect changes in our programs, legal requirements, or business
+                practices. The "Last updated" date at the top of this page will
+                reflect the most recent revision. Continued use of this website
+                or enrollment in our programs after an update constitutes
+                acceptance of the revised terms.
+              </p>
+            </section>
+
+            <section id="law" data-reveal>
+              <div class="section-title-row">
+                <span class="num">12</span>
+                <h2>Governing Law</h2>
+              </div>
+              <p>
+                These Terms of Service are governed by and construed in
+                accordance with the laws of the Republic of Kenya. Any disputes
+                arising from these terms or your use of our services shall be
+                subject to the exclusive jurisdiction of the courts of Kenya.
+              </p>
+            </section>
+
+            <section id="contact-us" data-reveal>
+              <div class="section-title-row">
+                <span class="num">13</span>
+                <h2>Contact Us</h2>
+              </div>
+              <p>
+                If you have questions about these Terms of Service, please reach
+                out:
+              </p>
+              <div class="legal-note">
+                <p style="margin-bottom: 6px">
+                  <i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 –
+                  00621, Nairobi, Kenya
+                </p>
+                <p style="margin-bottom: 6px">
+                  <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp;
+                  +254 722 741 293
+                </p>
+                <p style="margin-bottom: 0">
+                  <i class="fa-solid fa-envelope"></i>
+                  <a href="mailto:info@incad.org">info@incad.org</a>
+                </p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-file-contract cta-icon"></i>
+          <h2>Questions about enrolling your team?</h2>
+          <p>
+            We're happy to walk through the terms for your specific program
+            before you commit.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg">Talk to us</a>
+            <a href="faq.html" class="btn btn-ghost-light">See FAQs</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // Table-of-contents scrollspy — page-local
+      (function () {
+        const links = Array.from(document.querySelectorAll("#legal-toc a"));
+        const sections = links
+          .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
+          .filter(Boolean);
+        if (!sections.length || !("IntersectionObserver" in window)) return;
+        const spy = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+                links.forEach((a) =>
+                  a.classList.toggle(
+                    "is-active",
+                    a.getAttribute("href") === "#" + id,
+                  ),
+                );
+              }
+            });
+          },
+          { rootMargin: "-30% 0px -60% 0px", threshold: 0 },
+        );
+        sections.forEach((s) => spy.observe(s));
+      })();
+    </script>
+  </body>
+</html>

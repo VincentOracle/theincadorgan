@@ -1,0 +1,1342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="Explore InCAD's full range of capacity development services — training, research, study missions, performance contracting, recruitment and entrepreneurship programs."
+    />
+    <meta
+      property="og:title"
+      content="Services | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="Comprehensive capacity development solutions tailored for organizations, counties and government agencies."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   Services Page — page-specific styles (scoped here; none of these
+   class names exist in the shared styles.css).
+   ================================================================ */
+
+      /* ---------- Page hero ---------- */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 90px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+        margin-bottom: 14px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.1rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      /* ---------- Quick-jump service nav ---------- */
+      .quicknav-wrap {
+        background: var(--paper);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 70px;
+        z-index: 90;
+      }
+      .quicknav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 14px 24px;
+        max-width: var(--max);
+        margin: 0 auto;
+        scrollbar-width: thin;
+      }
+      .quicknav::-webkit-scrollbar {
+        height: 4px;
+      }
+      .quicknav::-webkit-scrollbar-thumb {
+        background: var(--border-cool);
+        border-radius: 4px;
+      }
+      .quicknav a {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--border-cool);
+        background: var(--surface);
+        font-size: 0.86rem;
+        font-weight: 500;
+        color: var(--muted);
+        white-space: nowrap;
+        transition: all 0.2s var(--ease);
+      }
+      .quicknav a.is-active,
+      .quicknav a:hover {
+        border-color: var(--purple);
+        color: var(--purple);
+        background: rgba(77, 38, 130, 0.06);
+      }
+      .quicknav i {
+        color: var(--gold);
+        font-size: 0.82rem;
+      }
+
+      /* ---------- Grid utilities ---------- */
+      .grid {
+        display: grid;
+        gap: 24px;
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      /* ---------- Overview stat strip ---------- */
+      .services-intro-stats {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+      .services-intro-stats div dt {
+        font-family: var(--font-head);
+        font-size: 1.9rem;
+        color: var(--purple);
+        font-weight: 600;
+      }
+      .services-intro-stats div dd {
+        font-size: 0.84rem;
+        color: var(--muted);
+        max-width: 16ch;
+      }
+
+      /* ---------- Service rows (zig-zag) ---------- */
+      .service-row {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 48px;
+        align-items: start;
+        padding: 64px 0;
+        border-bottom: 1px solid var(--border-cool);
+      }
+      .service-row:last-of-type {
+        border-bottom: none;
+      }
+      .service-row.reverse {
+        direction: rtl;
+      }
+      .service-row.reverse > * {
+        direction: ltr;
+      }
+      .service-panel {
+        background: linear-gradient(135deg, var(--purple), var(--blue));
+        border-radius: var(--radius-m);
+        padding: 40px 32px;
+        color: #fff;
+        position: sticky;
+        top: 150px;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .service-panel .service-panel-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 26px;
+      }
+      .service-panel .service-panel-index {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.5px;
+      }
+      .service-panel h2 {
+        color: #fff;
+        font-size: 1.3rem;
+        margin-top: 8px;
+      }
+
+      .service-body h3 {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--gold);
+        margin-bottom: 14px;
+        font-family: var(--font-body);
+        font-weight: 700;
+      }
+      .service-body p {
+        max-width: 62ch;
+        margin-bottom: 16px;
+      }
+      .service-chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .service-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: var(--paper);
+        border: 1px solid var(--border);
+        font-size: 0.86rem;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .service-chip i {
+        color: var(--gold);
+        font-size: 0.78rem;
+      }
+      .service-cta {
+        margin-top: 26px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 860px) {
+        .service-row,
+        .service-row.reverse {
+          grid-template-columns: 1fr;
+          direction: ltr;
+        }
+        .service-panel {
+          position: static;
+        }
+        .quicknav-wrap {
+          top: 0;
+        }
+      }
+
+      /* ---------- Engagement models ---------- */
+      .engage-card {
+        background: var(--surface);
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        padding: 34px 28px;
+        position: relative;
+        transition:
+          transform 0.3s var(--ease),
+          box-shadow 0.3s var(--ease);
+      }
+      .engage-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+      }
+      .engage-card.is-featured {
+        border-color: var(--gold);
+        box-shadow: 0 14px 34px rgba(201, 144, 47, 0.14);
+      }
+      .engage-badge {
+        position: absolute;
+        top: -13px;
+        right: 24px;
+        background: var(--gold);
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 5px 14px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .engage-card i {
+        color: var(--purple);
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .engage-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+      .engage-card ul {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .engage-card ul li {
+        font-size: 0.9rem;
+        color: var(--ink);
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .engage-card ul i {
+        color: var(--gold);
+        font-size: 0.8rem;
+        margin: 4px 0 0;
+        flex: 0 0 auto;
+      }
+
+      /* ---------- Sectors ---------- */
+      .sector-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+      .sector-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 1px solid var(--border-cool);
+        font-weight: 500;
+        font-size: 0.92rem;
+      }
+      .sector-chip i {
+        color: var(--gold);
+      }
+
+      /* ---------- FAQ (same pattern as about page) ---------- */
+      .faq-list {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-s);
+        margin-bottom: 12px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+      .faq-q {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 22px;
+        background: none;
+        border: none;
+        text-align: left;
+        font-family: var(--font-head);
+        font-size: 1rem;
+        color: var(--purple-deep);
+        cursor: pointer;
+      }
+      .faq-q i {
+        transition: transform 0.25s var(--ease);
+        color: var(--gold);
+        flex: 0 0 auto;
+      }
+      .faq-item.is-open .faq-q i {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s var(--ease);
+      }
+      .faq-a p {
+        padding: 0 22px 18px;
+        font-size: 0.92rem;
+      }
+
+      /* ---------- Final CTA card (distinct from global cta-banner, used mid-page) ---------- */
+      .consult-card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-m);
+        padding: 48px;
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .consult-card i {
+        color: var(--gold);
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .consult-card h2 {
+        margin-bottom: 12px;
+      }
+      .consult-card p {
+        max-width: 52ch;
+        margin: 0 auto 26px;
+      }
+
+      @media (max-width: 960px) {
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .page-hero {
+          padding: 130px 0 70px;
+        }
+      }
+      @media (max-width: 560px) {
+        .consult-card {
+          padding: 34px 24px;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Services</span>
+          </nav>
+          <h1>Comprehensive capacity development solutions</h1>
+          <p>
+            Tailored for organizations, counties, and government agencies, from
+            front‑line training to institutional research, recruitment and
+            entrepreneurship support.
+          </p>
+          <dl class="services-intro-stats">
+            <div>
+              <dt>08+</dt>
+              <dd>Service lines</dd>
+            </div>
+            <div>
+              <dt>15+</dt>
+              <dd>Years of delivery</dd>
+            </div>
+            <div>
+              <dt>3+</dt>
+              <dd>Countries served</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Quick jump nav -->
+      <div class="quicknav-wrap">
+        <nav class="quicknav" id="quicknav" aria-label="Jump to a service">
+          <a href="#training-capacity-development"
+            ><i class="fa-solid fa-chalkboard-user"></i>Training &amp;
+            Capacity</a
+          >
+          <a href="#research-surveys"
+            ><i class="fa-solid fa-magnifying-glass-chart"></i>Research &amp;
+            Surveys</a
+          >
+          <a href="#study-missions"
+            ><i class="fa-solid fa-plane-departure"></i>Study Missions</a
+          >
+          <a href="#conference-tourism"
+            ><i class="fa-solid fa-city"></i>Conference Tourism</a
+          >
+          <a href="#study-work-abroad"
+            ><i class="fa-solid fa-earth-africa"></i>Study/Work Abroad</a
+          >
+          <a href="#performance-contracting"
+            ><i class="fa-solid fa-scale-balanced"></i>Performance
+            Contracting</a
+          >
+          <a href="#recruitment-hr"
+            ><i class="fa-solid fa-people-arrows"></i>Recruitment &amp; HR</a
+          >
+          <a href="#entrepreneurship-development"
+            ><i class="fa-solid fa-store"></i>Entrepreneurship</a
+          >
+        </nav>
+      </div>
+
+      <!-- Services detail rows -->
+      <section id="services-detail">
+        <div class="container">
+          <article
+            class="service-row"
+            id="training-capacity-development"
+            data-reveal
+          >
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img
+                    src="images/training_capacity_development.jpeg"
+                    alt="Portrait of Prof. Paul P.W. Achola"
+                  />
+                </span>
+                <p class="service-panel-index">01 / 08</p>
+                <h2>Training &amp; Capacity Development</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                Professional training programs designed for different levels of
+                employees within organizations. Our programs focus on improving
+                competence, attitude, ethics, productivity, and organizational
+                performance.
+              </p>
+              <div class="service-chip-list">
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Performance Management</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Corporate Governance</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Strategic Planning</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Customer Care</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Records Management</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>HR Management</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Procurement</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>ICT</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Audit and Finance</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Project Management</span
+                >
+              </div>
+              <div class="service-cta">
+                <a href="index.html#programs" class="link-underline"
+                  >See related programs on the calendar</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="service-row reverse"
+            id="research-surveys"
+            data-reveal
+          >
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img
+                    src="images/research_surveys.jpeg"
+                    alt="research and surveys"
+                  />
+                </span>
+                <p class="service-panel-index">02 / 08</p>
+                <h2>Research &amp; Surveys</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                We conduct research and organizational assessments that support
+                informed decision‑making and institutional growth.
+              </p>
+              <div class="service-chip-list">
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Skills Gap Analysis</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Competency Index
+                  Surveys</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Organizational Structure
+                  Review</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Job Evaluation</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Surveys and Data
+                  Collection</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Research Studies</span
+                >
+              </div>
+              <div class="service-cta">
+                <a href="contact.html" class="link-underline"
+                  >Discuss a research brief</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="service-row" id="study-missions" data-reveal>
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img src="images/study_missions.jpeg" alt="Study Missions" />
+                </span>
+                <p class="service-panel-index">03 / 08</p>
+                <h2>Study Missions</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                We organize educational and benchmarking missions that expose
+                organizations to best practices and practical learning
+                experiences beyond their own institutions and borders.
+              </p>
+              <div class="service-cta">
+                <a href="contact.html" class="link-underline"
+                  >Plan a study mission</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="service-row reverse"
+            id="conference-tourism"
+            data-reveal
+          >
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img
+                    src="images/conference_tourism.jpeg"
+                    alt="Conference Tourism"
+                  />
+                </span>
+                <p class="service-panel-index">04 / 08</p>
+                <h2>Conference Tourism</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                We facilitate conference participation and professional
+                networking opportunities through organized conference tourism
+                services.
+              </p>
+              <div class="service-cta">
+                <a href="contact.html" class="link-underline"
+                  >Ask about upcoming conferences</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="service-row" id="study-work-abroad" data-reveal>
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img
+                    src="images/study_work_abroad.jpeg"
+                    alt="Study Abroad & Work Abroad"
+                  />
+                </span>
+                <p class="service-panel-index">05 / 08</p>
+                <h2>Study Abroad &amp; Work Abroad</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                We provide guidance and support for study and work opportunities
+                abroad, helping individuals expand their professional and
+                educational horizons.
+              </p>
+              <div class="service-cta">
+                <a href="contact.html" class="link-underline"
+                  >Get guidance on opportunities abroad</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="service-row reverse"
+            id="performance-contracting"
+            data-reveal
+          >
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img
+                    src="images/performance_contracting.jpeg"
+                    alt="Performance Contracting Programs"
+                  />
+                </span>
+                <p class="service-panel-index">06 / 08</p>
+                <h2>Performance Contracting Programs</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                Sensitizations, surveys, and training programs aligned with
+                performance contracting targets, including:
+              </p>
+              <div class="service-chip-list">
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Gender Mainstreaming</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Disability
+                  Mainstreaming</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>HIV/AIDS Awareness</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>Occupational Safety and
+                  Health</span
+                >
+                <span class="service-chip"
+                  ><i class="fa-solid fa-check"></i>ADA Compliance</span
+                >
+              </div>
+              <div class="service-cta">
+                <a href="index.html#programs" class="link-underline"
+                  >See related programs on the calendar</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="service-row" id="recruitment-hr" data-reveal>
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img
+                    src="images/recruitment_hr.jpeg"
+                    alt="recruitment and HR consultancy"
+                  />
+                </span>
+                <p class="service-panel-index">07 / 08</p>
+                <h2>Recruitment &amp; HR Consultancy</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                We assist organizations in sourcing qualified personnel for
+                temporary, contract, and permanent positions. Our consultants
+                possess the expertise and resources required to recruit across
+                diverse sectors while ensuring the right candidate fit.
+              </p>
+              <div class="service-cta">
+                <a href="contact.html" class="link-underline"
+                  >Talk to us about a vacancy</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="service-row reverse"
+            id="entrepreneurship-development"
+            data-reveal
+          >
+            <div class="service-panel">
+              <div>
+                <span>
+                  <img
+                    src="images/entrepreneurship_development.jpeg"
+                    alt="Entrepreneurship Development"
+                  />
+                </span>
+                <p class="service-panel-index">08 / 08</p>
+                <h2>Entrepreneurship Development</h2>
+              </div>
+            </div>
+            <div class="service-body">
+              <h3>What it covers</h3>
+              <p>
+                We offer entrepreneurship development programs targeting small
+                and micro enterprises, equipping entrepreneurs with practical
+                business management skills.
+              </p>
+              <div class="service-cta">
+                <a href="contact.html" class="link-underline"
+                  >Enquire about SME programs</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Engagement models -->
+      <section class="bg-soft" id="engagement">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">How You Can Work With Us</p>
+            <h2>Three ways to engage InCAD</h2>
+            <p class="section-sub">
+              Pick the format that fits your team's schedule, budget and
+              location.
+            </p>
+          </div>
+          <div class="grid grid-3">
+            <article class="engage-card" data-reveal>
+              <i class="fa-solid fa-calendar-days"></i>
+              <h3>Open Enrollment</h3>
+              <p>Join a scheduled cohort on the published program calendar.</p>
+              <ul>
+                <li><i class="fa-solid fa-circle"></i>Fixed dates and venue</li>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Network with peers from
+                  other organizations
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Best for individual or
+                  small‑group nominations
+                </li>
+              </ul>
+            </article>
+            <article class="engage-card is-featured" data-reveal>
+              <span class="engage-badge">Most requested</span>
+              <i class="fa-solid fa-building-shield"></i>
+              <h3>In‑House / Customized</h3>
+              <p>
+                We bring the program to your venue, built around your
+                organization's context.
+              </p>
+              <ul>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Curriculum adapted to your
+                  sector
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Flexible dates and location
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Cost‑efficient for larger
+                  teams
+                </li>
+              </ul>
+            </article>
+            <article class="engage-card" data-reveal>
+              <i class="fa-solid fa-earth-africa"></i>
+              <h3>Regional Cohort</h3>
+              <p>
+                Join a cross‑border program in Arusha or Kampala alongside
+                regional peers.
+              </p>
+              <ul>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Exposure to regional
+                  practice
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Ideal for cross‑border teams
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle"></i>Combines training with
+                  study‑mission value
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who we serve -->
+      <section id="who-we-serve">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Who We Serve</p>
+            <h2>Built for the public and private sector alike</h2>
+          </div>
+          <div class="sector-grid" data-reveal>
+            <span class="sector-chip"
+              ><i class="fa-solid fa-landmark"></i>Government agencies</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-city"></i>County governments</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-building"></i>Corporate organizations</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-building-columns"></i>Public‑sector
+              institutions</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-store"></i>Entrepreneurs &amp; SMEs</span
+            >
+            <span class="sector-chip"
+              ><i class="fa-solid fa-graduation-cap"></i>Education
+              administrators</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="bg-soft" id="services-faq">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Common Questions</p>
+            <h2>Before you request a program</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item" data-reveal>
+              <button class="faq-q" aria-expanded="false">
+                Can a service be combined with another e.g. training plus a
+                survey?<i class="fa-solid fa-plus"></i>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Yes. Many clients pair Research &amp; Surveys (a skills‑gap
+                  analysis) with a Training &amp; Capacity Development program
+                  built directly on those findings.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item" data-reveal>
+              <button class="faq-q" aria-expanded="false">
+                Do you customize the sub-topics under a service?<i
+                  class="fa-solid fa-plus"
+                ></i>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Yes — the listed sub‑topics under each service (for example,
+                  Procurement or ICT under Training &amp; Capacity Development)
+                  can be prioritized or combined based on your organization's
+                  needs.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item" data-reveal>
+              <button class="faq-q" aria-expanded="false">
+                How do we request a customized program?<i
+                  class="fa-solid fa-plus"
+                ></i>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Use the "Request a Consultation" button below or the Contact
+                  page — tell us the service, your sector and preferred timing,
+                  and we'll get back to you with a proposal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Need a customized program CTA -->
+      <section>
+        <div class="container">
+          <div class="consult-card" data-reveal>
+            <i class="fa-solid fa-handshake"></i>
+            <h2>Need a Customized Program?</h2>
+            <p>
+              We design demand‑driven solutions tailored to your organization's
+              needs.
+            </p>
+            <a href="contact.html" class="btn btn-primary"
+              >Request a Consultation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Global CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-handshake cta-icon"></i>
+          <h2>Ready to strengthen your organization?</h2>
+          <p>
+            Partner with InCAD to build sustainable capacity and outstanding
+            performance.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg"
+              >Get in touch</a
+            >
+            <a href="index.html#programs" class="btn btn-ghost-light"
+              >See program calendar</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // FAQ accordion — page-local
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        const btn = item.querySelector(".faq-q");
+        const panel = item.querySelector(".faq-a");
+        btn.addEventListener("click", () => {
+          const isOpen = item.classList.contains("is-open");
+          document.querySelectorAll(".faq-item.is-open").forEach((open) => {
+            if (open !== item) {
+              open.classList.remove("is-open");
+              open
+                .querySelector(".faq-q")
+                .setAttribute("aria-expanded", "false");
+              open.querySelector(".faq-a").style.maxHeight = null;
+            }
+          });
+          item.classList.toggle("is-open", !isOpen);
+          btn.setAttribute("aria-expanded", String(!isOpen));
+          panel.style.maxHeight = !isOpen ? panel.scrollHeight + "px" : null;
+        });
+      });
+
+      // Quick-jump scrollspy — highlights the active service pill
+      const quicknavLinks = Array.from(
+        document.querySelectorAll("#quicknav a"),
+      );
+      const sections = quicknavLinks
+        .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
+        .filter(Boolean);
+      if (sections.length && "IntersectionObserver" in window) {
+        const spy = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = entry.target.getAttribute("id");
+                quicknavLinks.forEach((a) =>
+                  a.classList.toggle(
+                    "is-active",
+                    a.getAttribute("href") === "#" + id,
+                  ),
+                );
+              }
+            });
+          },
+          { rootMargin: "-40% 0px -50% 0px", threshold: 0 },
+        );
+        sections.forEach((s) => spy.observe(s));
+      }
+    </script>
+  </body>
+</html>

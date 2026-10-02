@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      News &amp; Insights | InCAD — Institute for Capacity Development
+    </title>
+    <meta
+      name="description"
+      content="Updates, program recaps and capacity-development insights from InCAD — Institute for Capacity Development."
+    />
+    <meta
+      property="og:title"
+      content="News & Insights | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="Program recaps, announcements and practical insights on training, research and organizational performance."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   News & Insights Page — page-specific styles only.
+   ================================================================ */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 90px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+        margin-bottom: 14px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.1rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .hero-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .page-hero .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.86rem;
+        color: #fff;
+      }
+      .page-hero .hero-badge i {
+        color: var(--gold-soft);
+      }
+
+      /* ---------- Featured post ---------- */
+      .featured-post {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 0;
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+      .featured-post .featured-img {
+        position: relative;
+        min-height: 340px;
+        background-size: cover;
+        background-position: center;
+      }
+      .featured-post .featured-img .post-tag {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+      .featured-post .featured-body {
+        padding: 44px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .featured-post .featured-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .featured-post .featured-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .featured-post .featured-meta i {
+        color: var(--gold);
+      }
+      .featured-post h2 {
+        font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+        margin-bottom: 14px;
+      }
+      .featured-post p {
+        margin-bottom: 22px;
+        max-width: 52ch;
+      }
+      @media (max-width: 860px) {
+        .featured-post {
+          grid-template-columns: 1fr;
+        }
+        .featured-post .featured-img {
+          min-height: 220px;
+        }
+        .featured-post .featured-body {
+          padding: 32px 26px;
+        }
+      }
+
+      /* ---------- Category tag ---------- */
+      .post-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--purple-deep);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+      .post-tag i {
+        color: var(--gold);
+        font-size: 0.7rem;
+      }
+
+      /* ---------- News filters (reuse .cal-pill look) ---------- */
+      .news-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin: 44px 0 36px;
+      }
+
+      /* ---------- News grid ---------- */
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .news-card {
+        background: var(--surface);
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.3s var(--ease),
+          box-shadow 0.3s var(--ease);
+      }
+      .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+      }
+      .news-card .news-img {
+        position: relative;
+        height: 190px;
+        background-size: cover;
+        background-position: center;
+      }
+      .news-card .news-img .post-tag {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+      }
+      .news-card .news-body {
+        padding: 22px 22px 26px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .news-meta {
+        display: flex;
+        gap: 14px;
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      .news-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .news-meta i {
+        color: var(--gold);
+      }
+      .news-card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+        line-height: 1.35;
+      }
+      .news-card p {
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+        flex: 1;
+      }
+      .news-readmore {
+        font-weight: 600;
+        font-size: 0.88rem;
+        color: var(--purple-deep);
+        align-self: flex-start;
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-bottom: 1px solid var(--border);
+        padding: 0;
+      }
+      .news-readmore:hover {
+        color: var(--purple);
+        border-color: var(--purple);
+      }
+
+      .news-card.is-hidden {
+        display: none;
+      }
+
+      .load-more-wrap {
+        text-align: center;
+        margin-top: 44px;
+      }
+
+      @media (max-width: 960px) {
+        .news-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .page-hero {
+          padding: 130px 0 70px;
+        }
+      }
+      @media (max-width: 640px) {
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html" class="active">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>News</span>
+          </nav>
+          <h1>News &amp; insights from the field</h1>
+          <p>
+            Program recaps, announcements and practical thinking on training,
+            research and organizational performance, written by the people who
+            deliver it.
+          </p>
+          <div class="hero-badges">
+            <span class="hero-badge"
+              ><i class="fa-solid fa-newspaper"></i>8 articles</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-layer-group"></i>5 categories</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-calendar-check"></i>Updated regularly</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured post -->
+      <section>
+        <div class="container">
+          <article class="featured-post" data-reveal>
+            <div
+              class="featured-img"
+              style="
+                background-image: url(&quot;./images/news/news-08.jpg&quot;);
+              "
+            >
+              <span class="post-tag"
+                ><i class="fa-solid fa-lightbulb"></i>Insights</span
+              >
+            </div>
+            <div class="featured-body">
+              <div class="featured-meta">
+                <span><i class="fa-regular fa-calendar"></i>3 Sept 2026</span>
+                <span><i class="fa-regular fa-clock"></i>6 min read</span>
+                <span
+                  ><i class="fa-regular fa-user"></i>InCAD Research Team</span
+                >
+              </div>
+              <h2>
+                Why skills‑gap analysis should come before any training program
+              </h2>
+              <p>
+                Most training budgets are spent on programs nobody asked for.
+                Here's the case for running a proper skills‑gap analysis first —
+                and what it typically uncovers.
+              </p>
+              <button
+                class="btn btn-dark news-readmore-btn"
+                data-title="Why skills‑gap analysis should come before any training program"
+              >
+                Read the full article
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Filters + grid -->
+      <section class="bg-soft" id="news-grid-section">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Latest</p>
+            <h2>Browse by category</h2>
+          </div>
+
+          <div class="news-filters cal-filters" data-reveal>
+            <button class="cal-pill is-active" data-filter="all">All</button>
+            <button class="cal-pill" data-filter="insights">Insights</button>
+            <button class="cal-pill" data-filter="programs">Programs</button>
+            <button class="cal-pill" data-filter="announcements">
+              Announcements
+            </button>
+            <button class="cal-pill" data-filter="case-studies">
+              Case Studies
+            </button>
+            <button class="cal-pill" data-filter="events">Events</button>
+          </div>
+
+          <div class="news-grid" id="news-grid" data-reveal>
+            <article class="news-card" data-category="programs">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-01.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-chalkboard-user"></i>Programs</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>18 Aug 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>4 min read</span>
+                </div>
+                <h3>Inside the 2026 Training of Trainers cohort at Naivasha</h3>
+                <p>
+                  A look at what the five‑day TOT programme covers and who it's
+                  built for, straight from this year's Morendat Hotel cohort.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="Inside the 2026 Training of Trainers cohort at Naivasha"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="announcements">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-02.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-bullhorn"></i>Announcements</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>10 Aug 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>3 min read</span>
+                </div>
+                <h3>Regional cohorts: what to expect in Arusha and Kampala</h3>
+                <p>
+                  InCAD's regional program calendar is expanding. Here's how a
+                  cross‑border cohort differs from a Kenya‑based one.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="Regional cohorts: what to expect in Arusha and Kampala"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="insights">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-03.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-lightbulb"></i>Insights</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>29 Jul 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>5 min read</span>
+                </div>
+                <h3>
+                  Five signs your organization needs a performance contracting
+                  refresh
+                </h3>
+                <p>
+                  Gender mainstreaming, disability inclusion and OSH targets
+                  shift often. Here's how to tell your last sensitization has
+                  gone stale.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="Five signs your organization needs a performance contracting refresh"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="announcements">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-04.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-bullhorn"></i>Announcements</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>15 Jul 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>3 min read</span>
+                </div>
+                <h3>InCAD marks fifteen years of capacity development</h3>
+                <p>
+                  From a single training room in 2011 to 120+ institutions
+                  served across three countries — a short look back.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="InCAD marks fifteen years of capacity development"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="case-studies">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-05.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-chart-line"></i>Case Study</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>2 Jul 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>6 min read</span>
+                </div>
+                <h3>Building a customer‑care culture at a public agency</h3>
+                <p>
+                  How a front‑line customer care program was redesigned around
+                  real complaint data instead of a generic script.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="Building a customer‑care culture at a public agency"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="programs">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-06.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-chalkboard-user"></i>Programs</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>19 Jun 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>3 min read</span>
+                </div>
+                <h3>
+                  Monthly online sessions: a low‑cost way to stay compliant
+                </h3>
+                <p>
+                  At KSh 3,000 a seat, the tax, labour‑law and communication
+                  masterclasses are built for teams that can't spare a week
+                  away.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="Monthly online sessions: a low‑cost way to stay compliant"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+
+            <article class="news-card is-hidden" data-category="events">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-07.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-calendar-days"></i>Events</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>5 Jun 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>4 min read</span>
+                </div>
+                <h3>
+                  Preparing for the Annual Capacity Development Conference 2027
+                </h3>
+                <p>
+                  What to expect from InCAD's flagship gathering in Naivasha,
+                  and how to get your organization on the agenda.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="Preparing for the Annual Capacity Development Conference 2027"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+
+            <article class="news-card is-hidden" data-category="insights">
+              <div
+                class="news-img"
+                style="
+                  background-image: url(&quot;./images/news/news-01.jpg&quot;);
+                "
+              >
+                <span class="post-tag"
+                  ><i class="fa-solid fa-lightbulb"></i>Insights</span
+                >
+              </div>
+              <div class="news-body">
+                <div class="news-meta">
+                  <span><i class="fa-regular fa-calendar"></i>22 May 2026</span
+                  ><span><i class="fa-regular fa-clock"></i>5 min read</span>
+                </div>
+                <h3>Open enrollment vs. in‑house training: how to choose</h3>
+                <p>
+                  A quick framework for deciding whether to send staff to a
+                  scheduled cohort or bring the programme to your own venue.
+                </p>
+                <button
+                  class="news-readmore news-readmore-btn"
+                  data-title="Open enrollment vs. in‑house training: how to choose"
+                >
+                  Read more
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="load-more-wrap">
+            <button class="btn btn-ghost" id="load-more-btn">
+              Load more articles <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <p class="cal-empty" id="news-empty" hidden>
+              No articles in this category yet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter (shared component) -->
+      <section class="newsletter">
+        <div class="container newsletter-inner">
+          <div>
+            <p class="section-kicker">Don't miss the next one</p>
+            <h2>Get new articles by email</h2>
+            <p class="section-sub">
+              One short email a month for program recaps and practical insights,
+              no spam.
+            </p>
+          </div>
+          <form id="newsletter-form-news" class="newsletter-form" novalidate>
+            <label class="sr-only" for="newsletter-email-news"
+              >Email address</label
+            >
+            <input
+              type="email"
+              id="newsletter-email-news"
+              name="email"
+              placeholder="you@organization.org"
+              required
+            />
+            <button type="submit" class="btn btn-primary">
+              Subscribe <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-pen-nib cta-icon"></i>
+          <h2>Have a story we should feature?</h2>
+          <p>
+            If InCAD helped your team hit a goal, we'd love to tell that story
+            here.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg"
+              >Pitch us a story</a
+            >
+            <a href="index.html#programs" class="btn btn-ghost-light"
+              >See program calendar</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // News page — page-local: category filter, load-more, "coming soon" read-more,
+      // and its own newsletter form (the shared #newsletter-form id is already used
+      // on index.html, so this page's form has a distinct id and its own tiny handler).
+      (function () {
+        const filterBtns = document.querySelectorAll(".news-filters .cal-pill");
+        const cards = Array.from(document.querySelectorAll(".news-card"));
+        const loadMoreBtn = document.getElementById("load-more-btn");
+        const emptyMsg = document.getElementById("news-empty");
+        const INITIAL_VISIBLE = 6;
+        let currentFilter = "all";
+
+        function cardsForFilter(filter) {
+          return cards.filter(
+            (c) =>
+              filter === "all" || c.getAttribute("data-category") === filter,
+          );
+        }
+
+        function render() {
+          const matching = cardsForFilter(currentFilter);
+          cards.forEach((c) => {
+            c.style.display = matching.includes(c) ? "" : "none";
+            c.classList.remove("is-hidden");
+          });
+          matching.forEach((c, i) => {
+            if (i >= INITIAL_VISIBLE) c.classList.add("is-hidden");
+          });
+          const hasMore = matching.length > INITIAL_VISIBLE;
+          loadMoreBtn.style.display = hasMore ? "" : "none";
+          if (emptyMsg) emptyMsg.hidden = matching.length > 0;
+        }
+
+        filterBtns.forEach((btn) =>
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => b.classList.remove("is-active"));
+            btn.classList.add("is-active");
+            currentFilter = btn.getAttribute("data-filter");
+            render();
+          }),
+        );
+
+        loadMoreBtn.addEventListener("click", () => {
+          cardsForFilter(currentFilter).forEach((c) =>
+            c.classList.remove("is-hidden"),
+          );
+          loadMoreBtn.style.display = "none";
+        });
+
+        render();
+
+        // "Read more" — no article template exists yet, so be upfront about it
+        // instead of linking to a dead page.
+        document.querySelectorAll(".news-readmore-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const title = btn.getAttribute("data-title") || "This article";
+            if (window.Swal) {
+              window.Swal.fire({
+                icon: "info",
+                title: "Full article coming soon",
+                text:
+                  '"' +
+                  title +
+                  "\" — individual article pages aren't built yet. Check back soon, or contact us if you need the full text now.",
+                confirmButtonColor: "#4d2682",
+              });
+            } else {
+              alert('Full article page for "' + title + '" is coming soon.');
+            }
+          });
+        });
+
+        // Local newsletter form (distinct id from the homepage's)
+        const form = document.getElementById("newsletter-form-news");
+        if (form) {
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const input = document.getElementById("newsletter-email-news");
+            const email = (input.value || "").trim();
+            const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const alertFn = window.Swal
+              ? window.Swal.fire.bind(window.Swal)
+              : (opts) =>
+                  alert(opts.title + (opts.text ? " — " + opts.text : ""));
+            if (!valid) {
+              alertFn({
+                icon: "error",
+                title: "Check that email address",
+                text: "Please enter a valid email so we can send you new articles.",
+                confirmButtonColor: "#4d2682",
+              });
+              return;
+            }
+            alertFn({
+              icon: "success",
+              title: "You're subscribed!",
+              text: "We'll email you whenever a new article goes up.",
+              confirmButtonColor: "#4d2682",
+            });
+            form.reset();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

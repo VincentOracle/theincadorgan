@@ -1,0 +1,1369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="Learn about InCAD's mission, vision, core values, ethics and experienced team of consultants and trainers."
+    />
+    <meta
+      property="og:title"
+      content="About Us | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="Discover InCAD's fourteen-year journey building sustainable capacity through research, training and ethical professional development."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   About Page — page-specific styles (kept out of styles.css so the
+   shared sheet stays generic; none of these class names exist there).
+   ================================================================ */
+
+      /* ---------- Page Hero ---------- */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 90px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+        margin-bottom: 14px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.1rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .hero-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .page-hero .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.86rem;
+        color: #fff;
+      }
+      .page-hero .hero-badge i {
+        color: var(--gold-soft);
+      }
+
+      /* ---------- Grid utilities (scoped to this page) ---------- */
+      .grid {
+        display: grid;
+        gap: 24px;
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      /* ---------- Cards ---------- */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        padding: 34px 28px;
+        transition:
+          transform 0.3s var(--ease),
+          box-shadow 0.3s var(--ease),
+          border-color 0.3s var(--ease);
+        position: relative;
+        overflow: hidden;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+        opacity: 0;
+        transition: opacity 0.3s var(--ease);
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+        border-color: var(--border);
+      }
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      /* ---------- Vision & Mission ---------- */
+      .vm-card {
+        padding-top: 48px;
+      }
+      .vm-card .vm-icon {
+        position: absolute;
+        top: -24px;
+        left: 28px;
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        box-shadow: 0 8px 22px rgba(201, 144, 47, 0.35);
+      }
+      .vm-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+      }
+      .vm-card p {
+        font-size: 0.96rem;
+        line-height: 1.7;
+      }
+
+      /* ---------- Story timeline (Est. 2011 -> today, sequential) ---------- */
+      .story-timeline {
+        max-width: 840px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .story-row {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 24px;
+        padding: 26px 0;
+        border-bottom: 1px solid var(--border-cool);
+      }
+      .story-row:last-child {
+        border-bottom: none;
+      }
+      .story-year {
+        font-family: var(--font-head);
+        font-size: 1.5rem;
+        color: var(--purple);
+        font-weight: 600;
+      }
+      .story-row h3 {
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+      }
+      .story-row p {
+        font-size: 0.92rem;
+      }
+
+      /* ---------- Approach steps ---------- */
+      .approach-grid {
+        counter-reset: approach;
+      }
+      .approach-card {
+        position: relative;
+        padding-top: 40px;
+      }
+      .approach-card::after {
+        counter-increment: approach;
+        content: counter(approach, decimal-leading-zero);
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        font-family: var(--font-head);
+        font-size: 2.2rem;
+        color: var(--border-cool);
+        font-weight: 700;
+        line-height: 1;
+      }
+      .approach-card i {
+        color: var(--blue);
+        font-size: 1.4rem;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .approach-card h3 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+      }
+      .approach-card p {
+        font-size: 0.92rem;
+      }
+
+      /* ---------- Core Values ---------- */
+      .value-card {
+        text-align: center;
+        padding: 38px 28px;
+      }
+      .value-card .value-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--purple), var(--blue));
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 auto 20px;
+        box-shadow: 0 8px 24px rgba(77, 38, 130, 0.25);
+        transition:
+          transform 0.3s var(--ease),
+          box-shadow 0.3s var(--ease);
+      }
+      .card:hover .value-icon {
+        transform: scale(1.08) rotate(-4deg);
+        box-shadow: 0 10px 28px rgba(77, 38, 130, 0.32);
+      }
+      .value-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+      }
+      .value-card p {
+        font-size: 0.94rem;
+        line-height: 1.65;
+      }
+
+      /* ---------- Stats strip ---------- */
+      .about-stats {
+        background: var(--navy);
+        border-radius: var(--radius-m);
+        padding: 48px 32px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        text-align: center;
+        color: #fff;
+      }
+      .about-stats div span {
+        display: block;
+        font-family: var(--font-head);
+        font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+        color: var(--gold-soft);
+        font-weight: 600;
+      }
+      .about-stats div small {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.85rem;
+      }
+
+      /* ---------- Ethics ---------- */
+      .ethics-section {
+        position: relative;
+        overflow: hidden;
+      }
+      .ethics-section .split {
+        align-items: center;
+      }
+      .ethics-visual {
+        position: relative;
+        border-radius: var(--radius-m);
+        overflow: hidden;
+        min-height: 420px;
+        background: linear-gradient(135deg, var(--purple-deep), var(--navy));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ethics-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+        opacity: 0.45;
+        mix-blend-mode: luminosity;
+      }
+      .ethics-visual .ethics-quote {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 40px;
+        color: #fff;
+      }
+      .ethics-visual .ethics-quote i {
+        font-size: 2.4rem;
+        color: var(--gold-soft);
+        margin-bottom: 18px;
+        display: block;
+      }
+      .ethics-visual .ethics-quote p {
+        font-family: var(--font-head);
+        font-size: 1.35rem;
+        color: #fff;
+        line-height: 1.5;
+        max-width: 28ch;
+        margin: 0 auto;
+      }
+      .ethics-body h2 {
+        margin-bottom: 18px;
+      }
+      .ethics-body p {
+        margin-bottom: 14px;
+        max-width: 54ch;
+      }
+      .ethics-body .ethics-promise {
+        margin-top: 28px;
+        padding: 22px 24px;
+        background: var(--paper);
+        border-left: 4px solid var(--gold);
+        border-radius: 0 var(--radius-s) var(--radius-s) 0;
+      }
+      .ethics-body .ethics-promise p {
+        margin: 0;
+        font-size: 0.95rem;
+        font-style: italic;
+        color: var(--ink);
+      }
+
+      /* ---------- Team ---------- */
+      .team-grid {
+        gap: 28px;
+      }
+      .team-card {
+        text-align: center;
+        padding: 0 0 34px;
+      }
+      .team-card .team-photo-wrap {
+        position: relative;
+        width: 100%;
+        height: 260px;
+        overflow: hidden;
+        margin-bottom: 24px;
+        border-radius: var(--radius-m) var(--radius-m) 0 0;
+      }
+      .team-card .team-photo-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s var(--ease);
+      }
+      .team-card:hover .team-photo-wrap img {
+        transform: scale(1.06);
+      }
+      .team-card .team-photo-wrap::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(6, 42, 68, 0.55) 0%,
+          transparent 60%
+        );
+      }
+      .team-card .team-social {
+        position: absolute;
+        bottom: 14px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .team-card .team-social a {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--purple-deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+      }
+      .team-card .team-initials {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--paper), var(--border));
+        border: 3px solid var(--border-cool);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 34px auto 20px;
+        font-family: var(--font-head);
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: var(--purple);
+      }
+      .team-card h3 {
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+        padding: 0 24px;
+      }
+      .team-card .team-role {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--gold);
+        margin-bottom: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .team-card p {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        padding: 0 28px;
+        color: var(--muted);
+      }
+      .team-more {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      /* ---------- Story strip pills ---------- */
+      .story-strip {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+      .story-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 18px;
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .story-pill i {
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+
+      /* ---------- FAQ teaser accordion ---------- */
+      .faq-list {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-s);
+        margin-bottom: 12px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+      .faq-q {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 22px;
+        background: none;
+        border: none;
+        text-align: left;
+        font-family: var(--font-head);
+        font-size: 1rem;
+        color: var(--purple-deep);
+        cursor: pointer;
+      }
+      .faq-q i {
+        transition: transform 0.25s var(--ease);
+        color: var(--gold);
+        flex: 0 0 auto;
+      }
+      .faq-item.is-open .faq-q i {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s var(--ease);
+      }
+      .faq-a p {
+        padding: 0 22px 18px;
+        font-size: 0.92rem;
+      }
+      .faq-teaser-cta {
+        text-align: center;
+        margin-top: 28px;
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 960px) {
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .page-hero {
+          padding: 130px 0 70px;
+        }
+        .ethics-visual {
+          min-height: 320px;
+        }
+        .about-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .story-row {
+          grid-template-columns: 80px 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .card {
+          padding: 28px 22px;
+        }
+        .team-card .team-photo-wrap {
+          height: 220px;
+        }
+        .about-stats {
+          padding: 36px 22px;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>About</span>
+          </nav>
+          <h1>Fourteen years of building capacity, deliberately</h1>
+          <p>
+            A professional training institution registered in 2011, dedicated to
+            organizational performance through research, staff empowerment and
+            ethical capacity development.
+          </p>
+          <div class="hero-badges">
+            <span class="hero-badge"
+              ><i class="fa-solid fa-calendar-check"></i>Registered 2011</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-users"></i>120+ institutions served</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-earth-africa"></i>Kenya, Tanzania &amp;
+              Uganda</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Who We Are -->
+      <section id="who-we-are">
+        <div class="container split">
+          <div class="about-copy" data-reveal>
+            <p class="section-kicker">Who We Are</p>
+            <h2>Building capacity that lasts</h2>
+            <p>
+              InCAD – Institute for Capacity Development is a training
+              institution registered in 2011 with a mission to promote
+              performance through research and staff empowerment.
+            </p>
+            <p>
+              We provide demand‑driven programs and learning solutions tailored
+              to the needs of organizations, counties, government agencies, and
+              individuals seeking professional growth and improved performance.
+            </p>
+            <div class="story-strip">
+              <span class="story-pill"
+                ><i class="fa-solid fa-calendar-check"></i>Est. 2011</span
+              >
+              <span class="story-pill"
+                ><i class="fa-solid fa-users"></i>120+ Institutions</span
+              >
+              <span class="story-pill"
+                ><i class="fa-solid fa-earth-africa"></i>3 Countries</span
+              >
+            </div>
+          </div>
+          <div data-reveal>
+            <img
+              src="./images/about-us.jpg"
+              alt="InCAD team collaborating during a training session"
+              style="
+                border-radius: var(--radius-m);
+                box-shadow: var(--shadow-md);
+                width: 100%;
+              "
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Vision & Mission -->
+      <section class="bg-soft" id="vision-mission">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Our Purpose</p>
+            <h2>Vision &amp; Mission</h2>
+            <p class="section-sub">
+              The north star that guides every program we design and every
+              organization we serve.
+            </p>
+          </div>
+          <div class="grid grid-2" style="max-width: 900px; margin: 0 auto">
+            <article class="card vm-card" data-reveal>
+              <span class="vm-ion" aria-hidden="true"
+                ><i class="fa-solid fa-ye"></i
+              ></span>
+              <h3>Our Vision</h3>
+              <p>
+                To deliver sustainable and qualified human capital for the
+                increasingly globalized environment.
+              </p>
+            </article>
+            <article class="card vm-card" data-reveal>
+              <span class="vm-con" aria-hidden="true"
+                ><i class="fa-solid fa-bulseye"></i
+              ></span>
+              <h3>Our Mission</h3>
+              <p>
+                To build capacity through research, curriculum design, and offer
+                programs aimed at producing outstanding human performance,
+                attitude and competence in your organization. We advocate for
+                ethical practices by infusing ethics into our modules.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our story timeline -->
+      <section id="our-story">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Our Story</p>
+            <h2>Fourteen years, in brief</h2>
+            <p class="section-sub">
+              A short account of how InCAD grew from a single training room into
+              a regional capacity‑development partner.
+            </p>
+          </div>
+          <div class="story-timeline">
+            <div class="story-row" data-reveal>
+              <span class="story-year">2011</span>
+              <div>
+                <h3>InCAD is registered</h3>
+                <p>
+                  Founded to promote organizational performance through research
+                  and staff empowerment.
+                </p>
+              </div>
+            </div>
+            <div class="story-row" data-reveal>
+              <span class="story-year">2015</span>
+              <div>
+                <h3>Curriculum design formalized</h3>
+                <p>
+                  Demand‑driven program design becomes core practice, tailored
+                  to organizational levels rather than one‑size‑fits‑all
+                  content.
+                </p>
+              </div>
+            </div>
+            <div class="story-row" data-reveal>
+              <span class="story-year">2019</span>
+              <div>
+                <h3>Regional cohorts launched</h3>
+                <p>
+                  Programs extend beyond Kenya to serve institutions in Tanzania
+                  and Uganda.
+                </p>
+              </div>
+            </div>
+            <div class="story-row" data-reveal>
+              <span class="story-year">2026</span>
+              <div>
+                <h3>120+ institutions served</h3>
+                <p>
+                  A full annual calendar spanning leadership, labour relations,
+                  tax, wellness, safety and communication programs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Values -->
+      <section class="bg-soft" id="core-values">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Our Principles</p>
+            <h2>Core Values</h2>
+            <p class="section-sub">
+              The principles that guide everything we do, from curriculum design
+              to client engagement.
+            </p>
+          </div>
+          <div class="grid grid-4">
+            <article class="card value-card" data-reveal>
+              <div class="value-icon" aria-hidden="true">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <h3>Transparency</h3>
+              <p>
+                We uphold honesty, accountability, and openness in all our
+                engagements.
+              </p>
+            </article>
+            <article class="card value-card" data-reveal>
+              <div class="value-icon" aria-hidden="true">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+              <h3>Innovation</h3>
+              <p>
+                We embrace creative and practical solutions that improve
+                organizational performance.
+              </p>
+            </article>
+            <article class="card value-card" data-reveal>
+              <div class="value-icon" aria-hidden="true">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <h3>Professionalism</h3>
+              <p>
+                We maintain high standards of competence, ethics, and service
+                delivery.
+              </p>
+            </article>
+            <article class="card value-card" data-reveal>
+              <div class="value-icon" aria-hidden="true">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <h3>Teamwork</h3>
+              <p>
+                We believe in collaboration and partnership to achieve shared
+                success.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our approach -->
+      <section id="approach">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">How We Work</p>
+            <h2>Our approach to every program</h2>
+            <p class="section-sub">
+              The same disciplined process behind a two‑day workshop and a
+              multi‑year institutional partnership.
+            </p>
+          </div>
+          <div class="grid grid-4 approach-grid">
+            <article class="card approach-card" data-reveal>
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              <h3>Assess</h3>
+              <p>
+                Skills‑gap analysis and stakeholder consultation to understand
+                the real performance problem.
+              </p>
+            </article>
+            <article class="card approach-card" data-reveal>
+              <i class="fa-solid fa-pen-ruler"></i>
+              <h3>Design</h3>
+              <p>
+                Curriculum built around your organization's levels, sector and
+                outcomes, not a generic template.
+              </p>
+            </article>
+            <article class="card approach-card" data-reveal>
+              <i class="fa-solid fa-chalkboard-user"></i>
+              <h3>Deliver</h3>
+              <p>
+                Experienced consultants facilitate in‑person, regional or online
+                sessions with practical case work.
+              </p>
+            </article>
+            <article class="card approach-card" data-reveal>
+              <i class="fa-solid fa-chart-line"></i>
+              <h3>Evaluate</h3>
+              <p>
+                Post‑program review against the original objectives, feeding
+                into the next cohort's design.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats strip -->
+      <section class="bg-soft">
+        <div class="container">
+          <div class="about-stats" data-reveal>
+            <div>
+              <span data-counter="15">0</span
+              ><small>+ Years delivering programs</small>
+            </div>
+            <div>
+              <span data-counter="120">0</span
+              ><small>+ Institutions served</small>
+            </div>
+            <div>
+              <span data-counter="30">0</span><small>+Programs a year</small>
+            </div>
+            <div>
+              <span data-counter="3">0</span><small>+ Countries reached</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ethics -->
+      <section class="ethics-section" id="ethics">
+        <div class="container split">
+          <div class="ethics-visual" data-reveal>
+            <img
+              src="images/ethics-integrity.jpg"
+              alt="Placeholder visual representing integrity and partnership"
+            />
+            <div class="ethics-quote">
+              <i class="fa-solid fa-quote-left"></i>
+              <p>
+                Integrity is not a module — it is the foundation of every
+                module.
+              </p>
+            </div>
+          </div>
+          <div class="ethics-body" data-reveal>
+            <p class="section-kicker">Our Ethics</p>
+            <h2>Uncompromising integrity</h2>
+            <p>
+              InCAD's services are offered to the highest degree of integrity
+              and ethics. As a policy and belief of the organization and its
+              staff, we do not offer any incentives in order to secure
+              opportunities to offer our services.
+            </p>
+            <p>
+              Our success has been driven by the high quality of service we
+              provide to our clients. Every program is designed with ethical
+              benchmarks woven into the learning outcomes — because sustainable
+              capacity cannot be built on compromised foundations.
+            </p>
+            <div class="ethics-promise">
+              <p>
+                "We do not offer incentives to secure opportunities. Our work
+                speaks for itself."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section class="bg-soft" id="team">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">The People</p>
+            <h2>Our Team</h2>
+            <p class="section-sub">
+              Experienced consultants, trainers, and researchers committed to
+              delivering practical, professional, and impactful learning
+              solutions across diverse sectors.
+            </p>
+          </div>
+          <div class="grid grid-3 team-grid">
+            <article class="card team-card" data-reveal>
+              <div class="team-photo-wrap">
+                <img
+                  src="./images/team/board-chair_0004_Prof.-Paul-P.W.-Achola.jpg"
+                  alt="Portrait of Prof. Paul P.W. Achola"
+                />
+                <div class="team-social">
+                  <a
+                    href="https://www.linkedin.com/company/institute-for-capacity-building/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Paul Achola on LinkedIn"
+                    ><i class="fa-brands fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+              <h3>Paul W. Achola</h3>
+              <span class="team-role">Board Chairman</span>
+              <p>
+                Prof. Paul P.W. Achola is a distinguished scholar, researcher,
+                and academic leader with over 40 years of experience in
+                education, policy, and consultancy, currently serving as
+                Research Professor at the Catholic University of Eastern Africa
+                and Chairman of the Ethics and Integrity Institute.
+              </p>
+            </article>
+            <article class="card team-card" data-reveal>
+              <div class="team-photo-wrap">
+                <img
+                  src="./images/team/board-chair_0003_JACKY-NYANDENJE.jpg"
+                  alt="Portrait of Jackline Nyandeje"
+                />
+                <div class="team-social">
+                  <a
+                    href="https://www.linkedin.com/company/institute-for-capacity-building/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Jackline Nyandeje on LinkedIn"
+                    ><i class="fa-brands fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+              <h3>Jackline Nyandeje</h3>
+              <span class="team-role">Executive Director</span>
+              <p>
+                Jacky is a certified ethics officer, governance trainer, and
+                Executive Director of the Ethics and Integrity Institute, with
+                extensive experience in leadership, research, and capacity
+                development across more than 25 countries.
+              </p>
+            </article>
+            <article class="card team-card" data-reveal>
+              <div class="team-photo-wrap">
+                <img
+                  src="images/team/business-women-icon.png"
+                  alt="Portrait of Julie S. Ogoye"
+                />
+                <div class="team-social">
+                  <a
+                    href="https://www.linkedin.com/company/institute-for-capacity-building/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Julie S. Ogoye on LinkedIn"
+                    ><i class="fa-brands fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+              <h3>Julie S. Ogoye</h3>
+              <span class="team-role">Integrity Leader</span>
+              <p>
+                Julie S. Ogoye is an experienced ethics and integrity leader at
+                the Teachers Service Commission, specializing in
+                anti‑corruption, governance, and values‑driven leadership with
+                over 20 years championing ethical standards in Kenya's education
+                sector.
+              </p>
+            </article>
+          </div>
+          <div class="team-more">
+            <a href="contact.html" class="link-underline"
+              >Interested in facilitating with InCAD? Get in touch</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ teaser -->
+      <section id="faq-teaser">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Common Questions</p>
+            <h2>Quick answers</h2>
+            <p class="section-sub">
+              A few things people usually ask before their first program with
+              us.
+            </p>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item" data-reveal>
+              <button class="faq-q" aria-expanded="false">
+                Can InCAD deliver a program at our own venue?<i
+                  class="fa-solid fa-plus"
+                ></i>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Yes — you're welcome to request a change of programme date or
+                  venue to suit your organization's schedule and location
+                  preference.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item" data-reveal>
+              <button class="faq-q" aria-expanded="false">
+                Do you run programs outside Kenya?<i
+                  class="fa-solid fa-plus"
+                ></i>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Yes, we run regional cohorts in Arusha, Tanzania and Kampala,
+                  Uganda, alongside our Kenyan venues.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item" data-reveal>
+              <button class="faq-q" aria-expanded="false">
+                Are there shorter, lower‑cost options?<i
+                  class="fa-solid fa-plus"
+                ></i>
+              </button>
+              <div class="faq-a">
+                <p>
+                  Our monthly online sessions run 8:00–9:00 AM at KSh 3,000 per
+                  session, covering tax updates, labour law updates and a
+                  communication &amp; leadership masterclass.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-teaser-cta">
+            <a href="faq.html" class="btn btn-ghost">See all FAQs</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Banner -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-handshake cta-icon"></i>
+          <h2>Ready to strengthen your organization?</h2>
+          <p>
+            Partner with InCAD to build sustainable capacity and outstanding
+            performance.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg"
+              >Get in touch</a
+            >
+            <a href="programs.html" class="btn btn-ghost-light"
+              >See program calendar</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // FAQ accordion — page-local, only runs if .faq-item exists
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        const btn = item.querySelector(".faq-q");
+        const panel = item.querySelector(".faq-a");
+        btn.addEventListener("click", () => {
+          const isOpen = item.classList.contains("is-open");
+          document.querySelectorAll(".faq-item.is-open").forEach((open) => {
+            if (open !== item) {
+              open.classList.remove("is-open");
+              open
+                .querySelector(".faq-q")
+                .setAttribute("aria-expanded", "false");
+              open.querySelector(".faq-a").style.maxHeight = null;
+            }
+          });
+          item.classList.toggle("is-open", !isOpen);
+          btn.setAttribute("aria-expanded", String(!isOpen));
+          panel.style.maxHeight = !isOpen ? panel.scrollHeight + "px" : null;
+        });
+      });
+    </script>
+  </body>
+</html>

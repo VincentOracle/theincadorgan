@@ -1,0 +1,2564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Calendar | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="InCAD's full program calendar, August 2026 to October 2027 — training programs, dates, and venues across Kenya, Uganda and Tanzania."
+    />
+    <meta
+      property="og:title"
+      content="Program Calendar | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="Every InCAD training program scheduled from August 2026 through October 2027 — dates, venues and focus areas in one place."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+
+    <style>
+      /* ================================================================
+         Programs (Calendar) Page — page-specific styles
+         ================================================================ */
+
+      /* ---------- Page hero ---------- */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 90px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+        margin-bottom: 14px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.1rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .hero-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .page-hero .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.86rem;
+        color: #fff;
+      }
+      .page-hero .hero-badge i {
+        color: var(--gold-soft);
+      }
+
+      /* ---------- How enrollment works ---------- */
+      .steps-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .step-card {
+        background: var(--surface);
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        padding: 26px 24px;
+        position: relative;
+      }
+      .step-card .step-num {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        color: var(--gold);
+        margin-bottom: 10px;
+        display: block;
+      }
+      .step-card i {
+        color: var(--purple);
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .step-card h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .step-card p {
+        font-size: 0.88rem;
+      }
+
+      /* ---------- Filter toolbar ---------- */
+      .calendar-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+      .filter-btn {
+        background: var(--surface);
+        border: 1px solid var(--border-cool);
+        color: var(--muted);
+        padding: 9px 17px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s var(--ease);
+      }
+      .filter-btn:hover {
+        border-color: var(--purple);
+        color: var(--purple);
+      }
+      .filter-btn.active {
+        background: var(--purple);
+        border-color: var(--purple);
+        color: #fff;
+      }
+
+      /* ---------- Year divider ---------- */
+      .year-divider {
+        margin: 52px 0 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .year-divider span {
+        font-family: var(--font-head);
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--purple-deep);
+        white-space: nowrap;
+      }
+      .year-divider::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, var(--border-cool), transparent);
+      }
+
+      /* ---------- Calendar table ---------- */
+      .calendar-table-wrap {
+        background: var(--surface);
+        border-radius: var(--radius-m);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border-cool);
+        overflow: hidden;
+      }
+      table.calendar-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      table.calendar-table thead th {
+        background: var(--navy);
+        color: #fff;
+        text-align: left;
+        padding: 16px 18px;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        font-family: var(--font-head);
+      }
+      table.calendar-table tbody tr {
+        border-bottom: 1px solid var(--border-cool);
+        transition: background 0.15s var(--ease);
+      }
+      table.calendar-table tbody tr:last-child {
+        border-bottom: none;
+      }
+      table.calendar-table tbody tr:hover {
+        background: var(--paper);
+      }
+      table.calendar-table td {
+        padding: 16px 18px;
+        vertical-align: top;
+        color: var(--ink);
+      }
+      .prog-name {
+        font-weight: 600;
+        color: var(--purple-deep);
+        display: block;
+      }
+      .prog-sub {
+        color: var(--muted);
+        font-size: 0.82rem;
+        display: block;
+        margin-top: 3px;
+      }
+      .date-cell {
+        white-space: nowrap;
+        font-weight: 600;
+        color: var(--blue);
+      }
+      .venue-cell {
+        color: var(--muted);
+      }
+      .venue-flag {
+        font-size: 0.76rem;
+        color: var(--purple);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 3px;
+      }
+      .tag {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--blue);
+        white-space: nowrap;
+      }
+      .tag.regional {
+        background: var(--gold);
+      }
+      .row-hidden {
+        display: none;
+      }
+
+      /* ---------- Register button ---------- */
+      .btn-register {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 9px 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, var(--purple), var(--blue));
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        white-space: nowrap;
+        box-shadow: 0 2px 6px rgba(77, 38, 130, 0.2);
+        font-family: inherit;
+      }
+      .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(77, 38, 130, 0.35);
+        background: linear-gradient(135deg, var(--purple-deep), var(--blue));
+      }
+      .btn-register:active {
+        transform: translateY(0);
+      }
+      .btn-register i {
+        font-size: 0.75rem;
+      }
+
+      /* ---------- Online sessions & notes ---------- */
+      .online-box {
+        background: var(--paper);
+        border: 1px dashed var(--gold);
+        border-radius: var(--radius-m);
+        padding: 28px 30px;
+        margin-top: 44px;
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+      }
+      .online-box > i {
+        color: var(--purple);
+        font-size: 1.4rem;
+        margin-top: 3px;
+      }
+      .online-box h3 {
+        color: var(--purple-deep);
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+      .online-box ul {
+        padding-left: 0;
+        color: var(--ink);
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .online-box ul li {
+        list-style: none;
+        font-size: 0.92rem;
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+      }
+      .online-box ul li::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        flex: 0 0 auto;
+        margin-top: 6px;
+      }
+      .online-box .price {
+        font-weight: 700;
+        color: var(--purple);
+      }
+
+      .note-box {
+        background: var(--surface);
+        border-left: 4px solid var(--gold);
+        border-radius: 0 var(--radius-s) var(--radius-s) 0;
+        padding: 18px 22px;
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .calendar-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+        margin-top: 30px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .calendar-contact span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+      .calendar-contact i {
+        color: var(--gold);
+      }
+      .calendar-contact a {
+        color: var(--purple-deep);
+        font-weight: 600;
+      }
+
+      /* ---------- Responsive stacked table ---------- */
+      @media (max-width: 760px) {
+        table.calendar-table thead {
+          display: none;
+        }
+        table.calendar-table,
+        table.calendar-table tbody,
+        table.calendar-table tr,
+        table.calendar-table td {
+          display: block;
+          width: 100%;
+        }
+        table.calendar-table tr {
+          padding: 14px 4px;
+          border-bottom: 1px solid var(--border-cool);
+        }
+        table.calendar-table td {
+          padding: 6px 16px;
+        }
+        table.calendar-table td::before {
+          content: attr(data-label);
+          display: block;
+          font-size: 0.68rem;
+          font-weight: 700;
+          color: var(--muted);
+          text-transform: uppercase;
+          letter-spacing: 0.4px;
+          margin-bottom: 2px;
+          font-family: var(--font-body);
+        }
+        table.calendar-table td[data-label="Action"] {
+          text-align: left !important;
+          padding-top: 12px !important;
+        }
+        .btn-register {
+          width: 100%;
+        }
+        .steps-strip {
+          grid-template-columns: 1fr;
+        }
+        .online-box {
+          flex-direction: column;
+        }
+      }
+
+      /* ================================================================
+         Contact modal
+         ================================================================ */
+      .contact-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .contact-modal.active {
+        display: flex;
+      }
+      .contact-modal-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 42, 68, 0.65);
+        backdrop-filter: blur(3px);
+      }
+      .contact-modal-content {
+        position: relative;
+        z-index: 1001;
+        width: 100%;
+        max-width: 720px;
+        max-height: 90vh;
+        overflow-y: auto;
+        background: var(--surface);
+        border-radius: var(--radius-m);
+        box-shadow: var(--shadow-md);
+        animation: modalOpen 0.25s var(--ease);
+      }
+      .contact-modal-form {
+        padding: 36px;
+      }
+      .contact-modal-header {
+        margin-bottom: 24px;
+        padding-right: 36px;
+      }
+      .contact-modal-header h2 {
+        color: var(--purple-deep);
+        margin-bottom: 6px;
+        font-size: 1.4rem;
+      }
+      .contact-modal-header p {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+      .contact-modal-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        width: 38px;
+        height: 38px;
+        border: none;
+        border-radius: 50%;
+        background: var(--paper);
+        color: var(--purple-deep);
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+        transition: all 0.2s var(--ease);
+        z-index: 2;
+      }
+      .contact-modal-close:hover {
+        background: var(--purple);
+        color: #fff;
+      }
+      body.modal-open {
+        overflow: hidden;
+      }
+      @keyframes modalOpen {
+        from {
+          opacity: 0;
+          transform: translateY(20px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .mform-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .mform-group {
+        margin-bottom: 18px;
+      }
+      .mform-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 0.88rem;
+      }
+      .mform-group input,
+      .mform-group select,
+      .mform-group textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid var(--border-cool);
+        border-radius: 8px;
+        font-size: 0.94rem;
+        font-family: inherit;
+        transition: border-color 0.2s var(--ease);
+      }
+      .mform-group input:focus,
+      .mform-group select:focus,
+      .mform-group textarea:focus {
+        outline: none;
+        border-color: var(--purple);
+      }
+      .mform-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      /* ================================================================
+         Registration modal
+         ================================================================ */
+      .reg-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .reg-modal.active {
+        display: flex;
+      }
+      .reg-modal-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 42, 68, 0.65);
+        backdrop-filter: blur(4px);
+      }
+      .reg-modal-content {
+        position: relative;
+        z-index: 1101;
+        width: 100%;
+        max-width: 640px;
+        max-height: 92vh;
+        overflow-y: auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 24px 64px rgba(6, 42, 68, 0.35);
+        padding: 32px 32px 28px;
+        animation: regModalOpen 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      @keyframes regModalOpen {
+        from {
+          opacity: 0;
+          transform: translateY(24px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .reg-modal-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 38px;
+        height: 38px;
+        border: none;
+        border-radius: 50%;
+        background: #f3f0fa;
+        color: var(--purple);
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        z-index: 2;
+      }
+      .reg-modal-close:hover {
+        background: var(--purple);
+        color: #fff;
+        transform: rotate(90deg);
+      }
+      .reg-modal-header {
+        margin-bottom: 22px;
+        padding-right: 40px;
+      }
+      .reg-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        background: linear-gradient(
+          135deg,
+          rgba(77, 38, 130, 0.1),
+          rgba(29, 63, 146, 0.1)
+        );
+        color: var(--purple);
+        font-size: 0.72rem;
+        font-weight: 700;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+      }
+      .reg-modal-header h2 {
+        color: var(--purple-deep);
+        font-size: 1.4rem;
+        margin-bottom: 4px;
+      }
+      .reg-modal-header p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* Program summary card */
+      .reg-program-summary {
+        background: linear-gradient(135deg, #faf8ff, #f4f7fd);
+        border: 1px solid rgba(77, 38, 130, 0.12);
+        border-radius: 12px;
+        padding: 16px 18px;
+        margin-bottom: 22px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 18px;
+      }
+      .reg-summary-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        min-width: 0;
+      }
+      .reg-summary-row i {
+        color: var(--purple);
+        font-size: 0.95rem;
+        margin-top: 3px;
+        flex: 0 0 auto;
+      }
+      .reg-summary-row > div {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .reg-summary-label {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--muted);
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .reg-summary-row strong {
+        font-size: 0.86rem;
+        color: var(--ink);
+        line-height: 1.35;
+        word-break: break-word;
+      }
+
+      /* Reg form */
+      .reg-form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .reg-form-group {
+        margin-bottom: 14px;
+      }
+      .reg-form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .reg-form-group .req {
+        color: #e63946;
+        font-weight: 700;
+      }
+      .reg-form-group .optional {
+        color: var(--muted);
+        font-weight: 400;
+        font-size: 0.78rem;
+      }
+      .reg-form-group input {
+        width: 100%;
+        padding: 11px 14px;
+        border: 1px solid var(--border-cool);
+        border-radius: 8px;
+        font-size: 0.92rem;
+        font-family: inherit;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+        background: #fff;
+      }
+      .reg-form-group input:focus {
+        outline: none;
+        border-color: var(--purple);
+        box-shadow: 0 0 0 3px rgba(77, 38, 130, 0.12);
+      }
+      .reg-form-group input.error {
+        border-color: #e63946;
+        box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+      }
+      .reg-form-actions {
+        margin-top: 10px;
+      }
+      .reg-form-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        .contact-modal {
+          padding: 10px;
+        }
+        .contact-modal-form {
+          padding: 26px 20px;
+        }
+        .mform-row {
+          grid-template-columns: 1fr;
+        }
+        .reg-modal {
+          padding: 10px;
+        }
+        .reg-modal-content {
+          padding: 26px 20px 22px;
+          border-radius: 12px;
+        }
+        .reg-program-summary {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .reg-form-row {
+          grid-template-columns: 1fr;
+        }
+        .reg-modal-header h2 {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating social media buttons -->
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href="https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html" class="active">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Programs</span>
+          </nav>
+          <h1>Program Calendar</h1>
+          <p>
+            Every InCAD training program scheduled from August 2026 through
+            October 2027 — dates, venues and focus areas in one place.
+          </p>
+          <div class="hero-badges">
+            <span class="hero-badge"
+              ><i class="fa-regular fa-calendar-days"></i>24 programs
+              scheduled</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-earth-africa"></i>Kenya, Tanzania &amp;
+              Uganda</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-video"></i>Monthly online sessions</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- How enrollment works -->
+      <section>
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">How It Works</p>
+            <h2>Booking a seat takes three steps</h2>
+          </div>
+          <div class="steps-strip">
+            <article class="step-card" data-reveal>
+              <span class="step-num">01</span>
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <h3>Choose a program</h3>
+              <p>
+                Filter the calendar below by focus area, or pick a date and
+                venue that suits your team.
+              </p>
+            </article>
+            <article class="step-card" data-reveal>
+              <span class="step-num">02</span>
+              <i class="fa-solid fa-pen-to-square"></i>
+              <h3>Register your seat</h3>
+              <p>
+                Click <strong>Register</strong> on any program to submit your
+                details in under a minute.
+              </p>
+            </article>
+            <article class="step-card" data-reveal>
+              <span class="step-num">03</span>
+              <i class="fa-solid fa-circle-check"></i>
+              <h3>Confirm your seat</h3>
+              <p>
+                We'll confirm availability and share joining instructions or
+                arrange your in‑house/regional session.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Full schedule -->
+      <section class="bg-soft" id="schedule">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Full Schedule</p>
+            <h2>Browse or filter by focus area</h2>
+            <p class="section-sub">
+              Looking for full program descriptions and highlights? Every
+              listing below links back to the relevant service on our
+              <a href="services.html" class="link-underline">Services page</a>.
+            </p>
+          </div>
+
+          <!-- Filter toolbar -->
+          <div class="calendar-toolbar" id="filterBar">
+            <button class="filter-btn active" data-filter="all">
+              All Programs
+            </button>
+            <button class="filter-btn" data-filter="leadership">
+              Leadership &amp; Governance
+            </button>
+            <button class="filter-btn" data-filter="labour">
+              Labour &amp; Industrial Relations
+            </button>
+            <button class="filter-btn" data-filter="tax">
+              Tax &amp; Compliance
+            </button>
+            <button class="filter-btn" data-filter="wellness">
+              HIV/AIDS &amp; Wellness
+            </button>
+            <button class="filter-btn" data-filter="safety">
+              Occupational Safety
+            </button>
+            <button class="filter-btn" data-filter="substance">
+              Drug &amp; Substance Abuse
+            </button>
+            <button class="filter-btn" data-filter="comms">
+              Communication &amp; PR
+            </button>
+            <button class="filter-btn" data-filter="other">Other</button>
+          </div>
+
+          <!-- ========================= 2026 ========================= -->
+          <div class="year-divider"><span>2026</span></div>
+          <div class="calendar-table-wrap">
+            <table class="calendar-table" id="calTable2026">
+              <thead>
+                <tr>
+                  <th style="width: 30%">Programme</th>
+                  <th style="width: 16%">Dates</th>
+                  <th style="width: 22%">Venue</th>
+                  <th style="width: 16%">Focus area</th>
+                  <th style="width: 16%; text-align: center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1 -->
+                <tr data-cat="other">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Training of Trainers (TOT) Programme</span
+                    ><span class="prog-sub"
+                      >Build in-house training and facilitation capacity</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">24 – 28 Aug 2026</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Morendat Hotel, Naivasha
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Trainer Development</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Training of Trainers (TOT) Programme"
+                      data-dates="24 – 28 Aug 2026"
+                      data-venue="Morendat Hotel, Naivasha"
+                      data-focus="Trainer Development"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr data-cat="comms">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Effective Communication &amp; Presentation Skills</span
+                    ><span class="prog-sub"
+                      >Sharpen professional communication and delivery</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">
+                    31 Aug – 4 Sept 2026
+                  </td>
+                  <td data-label="Venue" class="venue-cell">
+                    PrideInn Paradise, Mombasa
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Communication</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Effective Communication &amp; Presentation Skills"
+                      data-dates="31 Aug – 4 Sept 2026"
+                      data-venue="PrideInn Paradise, Mombasa"
+                      data-focus="Communication"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr data-cat="labour">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Labour Laws &amp; Industrial Relations</span
+                    ><span class="prog-sub"
+                      >Navigating employment law and workplace disputes</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">
+                    14 – 18 Sept 2026
+                  </td>
+                  <td data-label="Venue" class="venue-cell">
+                    Arusha, Tanzania<span class="venue-flag"
+                      ><i class="fa-solid fa-earth-africa"></i>Regional</span
+                    >
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Labour Relations</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Labour Laws &amp; Industrial Relations"
+                      data-dates="14 – 18 Sept 2026"
+                      data-venue="Arusha, Tanzania (Regional)"
+                      data-focus="Labour Relations"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr data-cat="wellness">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >HIV/AIDS Workplace Mainstreaming</span
+                    ><span class="prog-sub"
+                      >Policy and practice for an inclusive workplace</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">
+                    28 Sept – 2 Oct 2026
+                  </td>
+                  <td data-label="Venue" class="venue-cell">
+                    Boma Inn, Eldoret
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Wellness</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="HIV/AIDS Workplace Mainstreaming"
+                      data-dates="28 Sept – 2 Oct 2026"
+                      data-venue="Boma Inn, Eldoret"
+                      data-focus="Wellness"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 5 -->
+                <tr data-cat="safety">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Occupational Safety &amp; Health Management</span
+                    ><span class="prog-sub"
+                      >Building safer, compliant work environments</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">12 – 16 Oct 2026</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Lake Naivasha Resort
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Occupational Safety</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Occupational Safety &amp; Health Management"
+                      data-dates="12 – 16 Oct 2026"
+                      data-venue="Lake Naivasha Resort"
+                      data-focus="Occupational Safety"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 6 -->
+                <tr data-cat="substance">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Drug &amp; Substance Abuse Prevention</span
+                    ><span class="prog-sub"
+                      >Practical prevention strategies for organizations</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">26 – 30 Oct 2026</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Mombasa Beach Hotel
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Substance Abuse</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Drug &amp; Substance Abuse Prevention"
+                      data-dates="26 – 30 Oct 2026"
+                      data-venue="Mombasa Beach Hotel"
+                      data-focus="Substance Abuse"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 7 -->
+                <tr data-cat="other">
+                  <td data-label="Programme">
+                    <span class="prog-name">Pre-Retirement Planning</span
+                    ><span class="prog-sub"
+                      >Financial and personal readiness for retirement</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">9 – 13 Nov 2026</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Kampala, Uganda<span class="venue-flag"
+                      ><i class="fa-solid fa-earth-africa"></i>Regional</span
+                    >
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Retirement Planning</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Pre-Retirement Planning"
+                      data-dates="9 – 13 Nov 2026"
+                      data-venue="Kampala, Uganda (Regional)"
+                      data-focus="Retirement Planning"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 8 -->
+                <tr data-cat="leadership">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Strategic Leadership &amp; Management Skills</span
+                    ><span class="prog-sub"
+                      >Equipping managers with strategic decision tools</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">23 – 27 Nov 2026</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Nairobi Serena Hotel
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Leadership</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Strategic Leadership &amp; Management Skills"
+                      data-dates="23 – 27 Nov 2026"
+                      data-venue="Nairobi Serena Hotel"
+                      data-focus="Leadership"
+                      data-year="2026"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ========================= 2027 ========================= -->
+          <div class="year-divider"><span>2027</span></div>
+          <div class="calendar-table-wrap">
+            <table class="calendar-table" id="calTable2027">
+              <thead>
+                <tr>
+                  <th style="width: 30%">Programme</th>
+                  <th style="width: 16%">Dates</th>
+                  <th style="width: 22%">Venue</th>
+                  <th style="width: 16%">Focus area</th>
+                  <th style="width: 16%; text-align: center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1 -->
+                <tr data-cat="tax">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Tax Audit &amp; Revenue Administration</span
+                    ><span class="prog-sub"
+                      >Understanding audit processes and compliance</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">18 – 22 Jan 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Morendat, Naivasha
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Tax &amp; Compliance</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Tax Audit &amp; Revenue Administration"
+                      data-dates="18 – 22 Jan 2027"
+                      data-venue="Morendat, Naivasha"
+                      data-focus="Tax &amp; Compliance"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr data-cat="labour">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Labour Relations &amp; Collective Bargaining</span
+                    ><span class="prog-sub"
+                      >Negotiation strategy for CBAs and disputes</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">8 – 12 Feb 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Arusha, Tanzania<span class="venue-flag"
+                      ><i class="fa-solid fa-earth-africa"></i>Regional</span
+                    >
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Labour Relations</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Labour Relations &amp; Collective Bargaining"
+                      data-dates="8 – 12 Feb 2027"
+                      data-venue="Arusha, Tanzania (Regional)"
+                      data-focus="Labour Relations"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr data-cat="other">
+                  <td data-label="Programme">
+                    <span class="prog-name">Pre-Retirement Planning</span
+                    ><span class="prog-sub"
+                      >Financial and personal readiness for retirement</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">22 – 26 Feb 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Legacy Hotel &amp; Suites, Nakuru
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Retirement Planning</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Pre-Retirement Planning"
+                      data-dates="22 – 26 Feb 2027"
+                      data-venue="Legacy Hotel &amp; Suites, Nakuru"
+                      data-focus="Retirement Planning"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr data-cat="wellness">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >HIV/AIDS, Mental Health &amp; Workplace Wellness</span
+                    ><span class="prog-sub"
+                      >A holistic approach to employee wellbeing</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">8 – 12 Mar 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Kyaka Hotel, Machakos
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Wellness</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="HIV/AIDS, Mental Health &amp; Workplace Wellness"
+                      data-dates="8 – 12 Mar 2027"
+                      data-venue="Kyaka Hotel, Machakos"
+                      data-focus="Wellness"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 5 -->
+                <tr data-cat="substance">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Drug &amp; Substance Abuse Counselling Skills</span
+                    ><span class="prog-sub"
+                      >Equipping counsellors and HR teams to respond</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">22 – 26 Mar 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Kyaka Hotel, Machakos
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Substance Abuse</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Drug &amp; Substance Abuse Counselling Skills"
+                      data-dates="22 – 26 Mar 2027"
+                      data-venue="Kyaka Hotel, Machakos"
+                      data-focus="Substance Abuse"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 6 -->
+                <tr data-cat="other">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Training of Trainers (Advanced TOT)</span
+                    ><span class="prog-sub"
+                      >Advanced facilitation and curriculum design</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">12 – 16 Apr 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Ciala Resort, Kisumu
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Trainer Development</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Training of Trainers (Advanced TOT)"
+                      data-dates="12 – 16 Apr 2027"
+                      data-venue="Ciala Resort, Kisumu"
+                      data-focus="Trainer Development"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 7 -->
+                <tr data-cat="comms">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Strategic Communication &amp; Public Relations</span
+                    ><span class="prog-sub"
+                      >Managing organizational image and messaging</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">3 – 7 May 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Mombasa Beach Hotel
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Communication</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Strategic Communication &amp; Public Relations"
+                      data-dates="3 – 7 May 2027"
+                      data-venue="Mombasa Beach Hotel"
+                      data-focus="Communication"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 8 -->
+                <tr data-cat="tax">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Payroll Tax, PAYE &amp; Statutory Deductions</span
+                    ><span class="prog-sub"
+                      >Getting payroll compliance right</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">7 – 11 Jun 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Boma Inn, Eldoret
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Tax &amp; Compliance</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Payroll Tax, PAYE &amp; Statutory Deductions"
+                      data-dates="7 – 11 Jun 2027"
+                      data-venue="Boma Inn, Eldoret"
+                      data-focus="Tax &amp; Compliance"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 9 -->
+                <tr data-cat="labour">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Labour Dispute Resolution &amp; Mediation</span
+                    ><span class="prog-sub"
+                      >Conflict resolution skills for the workplace</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">21 – 25 Jun 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Morendat, Naivasha
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Labour Relations</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Labour Dispute Resolution &amp; Mediation"
+                      data-dates="21 – 25 Jun 2027"
+                      data-venue="Morendat, Naivasha"
+                      data-focus="Labour Relations"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 10 -->
+                <tr data-cat="safety">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Occupational Health &amp; Safety</span
+                    ><span class="prog-sub"
+                      >Compliance and risk reduction on-site</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">5 – 9 Jul 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Lake Naivasha Resort
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Occupational Safety</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Occupational Health &amp; Safety"
+                      data-dates="5 – 9 Jul 2027"
+                      data-venue="Lake Naivasha Resort"
+                      data-focus="Occupational Safety"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 11 -->
+                <tr data-cat="other">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Gender Mainstreaming &amp; Inclusion</span
+                    ><span class="prog-sub"
+                      >Building equitable, inclusive institutions</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">19 – 23 Jul 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Boma Inn, Eldoret
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Gender &amp; Inclusion</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Gender Mainstreaming &amp; Inclusion"
+                      data-dates="19 – 23 Jul 2027"
+                      data-venue="Boma Inn, Eldoret"
+                      data-focus="Gender &amp; Inclusion"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 12 -->
+                <tr data-cat="leadership">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Leadership, Governance &amp; Ethics</span
+                    ><span class="prog-sub"
+                      >Principled leadership for public and private
+                      institutions</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">9 – 13 Aug 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Arusha, Tanzania<span class="venue-flag"
+                      ><i class="fa-solid fa-earth-africa"></i>Regional</span
+                    >
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Leadership</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Leadership, Governance &amp; Ethics"
+                      data-dates="9 – 13 Aug 2027"
+                      data-venue="Arusha, Tanzania (Regional)"
+                      data-focus="Leadership"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 13 -->
+                <tr data-cat="other">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Training of Trainers (TOT) Programme</span
+                    ><span class="prog-sub"
+                      >Build in-house training and facilitation capacity</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">23 – 27 Aug 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Kampala, Uganda<span class="venue-flag"
+                      ><i class="fa-solid fa-earth-africa"></i>Regional</span
+                    >
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Trainer Development</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Training of Trainers (TOT) Programme"
+                      data-dates="23 – 27 Aug 2027"
+                      data-venue="Kampala, Uganda (Regional)"
+                      data-focus="Trainer Development"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 14 -->
+                <tr data-cat="labour">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Collective Bargaining &amp; Labour Law</span
+                    ><span class="prog-sub"
+                      >Negotiation strategy for CBAs and disputes</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">6 – 10 Sept 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Kyaka Hotel, Machakos
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Labour Relations</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Collective Bargaining &amp; Labour Law"
+                      data-dates="6 – 10 Sept 2027"
+                      data-venue="Kyaka Hotel, Machakos"
+                      data-focus="Labour Relations"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 15 -->
+                <tr data-cat="substance">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Drug &amp; Substance Abuse Prevention</span
+                    ><span class="prog-sub"
+                      >Practical prevention strategies for organizations</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">
+                    20 – 24 Sept 2027
+                  </td>
+                  <td data-label="Venue" class="venue-cell">
+                    Mombasa Beach Hotel
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag">Substance Abuse</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Drug &amp; Substance Abuse Prevention"
+                      data-dates="20 – 24 Sept 2027"
+                      data-venue="Mombasa Beach Hotel"
+                      data-focus="Substance Abuse"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 16 -->
+                <tr data-cat="leadership">
+                  <td data-label="Programme">
+                    <span class="prog-name"
+                      >Annual Capacity Development Conference</span
+                    ><span class="prog-sub"
+                      >InCAD's flagship annual gathering</span
+                    >
+                  </td>
+                  <td data-label="Dates" class="date-cell">4 – 8 Oct 2027</td>
+                  <td data-label="Venue" class="venue-cell">
+                    Morendat, Naivasha
+                  </td>
+                  <td data-label="Focus area">
+                    <span class="tag regional">Flagship Event</span>
+                  </td>
+                  <td data-label="Action" style="text-align: center">
+                    <button
+                      type="button"
+                      class="btn-register"
+                      data-program="Annual Capacity Development Conference"
+                      data-dates="4 – 8 Oct 2027"
+                      data-venue="Morendat, Naivasha"
+                      data-focus="Flagship Event"
+                      data-year="2027"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i> Register
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Online sessions -->
+          <div class="online-box" data-reveal>
+            <i class="fa-solid fa-video"></i>
+            <div>
+              <h3>Monthly online sessions</h3>
+              <ul>
+                <li>
+                  Every 2nd Tuesday — Tax Updates &amp; Emerging Compliance
+                  Issues
+                </li>
+                <li>Every 3rd Thursday — Labour Law Updates</li>
+                <li>
+                  Every Last Friday — Communication &amp; Leadership Masterclass
+                </li>
+              </ul>
+              <p>
+                All sessions run <strong>8:00 – 9:00 AM</strong> at
+                <span class="price">KSh 3,000</span> per session.
+              </p>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <strong>Note:</strong> You're welcome to request a change of
+            programme date or venue to suit your organization's schedule and
+            location preference.
+          </div>
+
+          <div class="calendar-contact">
+            <span><i class="fa-solid fa-phone"></i>+254 793 563 553</span>
+            <span
+              ><i class="fa-solid fa-mobile-screen"></i>+254 750 589 082</span
+            >
+            <span><i class="fa-solid fa-mobile-screen"></i>0789 702 582</span>
+            <span
+              ><i class="fa-solid fa-envelope"></i
+              ><a href="mailto:info@incad.org">info@incad.org</a></span
+            >
+            <span><i class="fa-solid fa-globe"></i>www.incad.org</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-calendar-check cta-icon"></i>
+          <h2>Ready to reserve your spot?</h2>
+          <p>
+            See full program descriptions on our Services page, or reach out
+            directly to enroll your team.
+          </p>
+          <div class="cta-actions">
+            <button
+              type="button"
+              class="btn btn-outline btn-lg"
+              id="openContactModal"
+            >
+              Send an inquiry
+            </button>
+            <a href="services.html" class="btn btn-ghost-light"
+              >Browse services</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ============================================================
+         Contact / Inquiry Modal
+         ============================================================ -->
+    <div
+      class="contact-modal"
+      id="contactModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contactModalTitle"
+    >
+      <div class="contact-modal-overlay" id="contactModalOverlay"></div>
+      <div class="contact-modal-content">
+        <form
+          class="contact-modal-form"
+          id="modalContactForm"
+          method="POST"
+          novalidate
+        >
+          <button
+            type="button"
+            class="contact-modal-close"
+            id="closeContactModal"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+          <div class="contact-modal-header">
+            <h2 id="contactModalTitle">Send us an inquiry</h2>
+            <p>Fill in the form below and our team will get back to you.</p>
+          </div>
+
+          <div class="mform-row">
+            <div class="mform-group">
+              <label for="fullname">Full name *</label>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                required
+                maxlength="100"
+              />
+            </div>
+            <div class="mform-group">
+              <label for="org">Organization name</label>
+              <input type="text" id="org" name="org" maxlength="150" />
+            </div>
+          </div>
+
+          <div class="mform-row">
+            <div class="mform-group">
+              <label for="email">Email address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                maxlength="120"
+              />
+            </div>
+            <div class="mform-group">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" maxlength="25" />
+            </div>
+          </div>
+
+          <div class="mform-group">
+            <label for="subject">Subject *</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              maxlength="150"
+            />
+          </div>
+
+          <div class="mform-group">
+            <label for="service">Service of interest</label>
+            <select id="service" name="service">
+              <option value="">-- Select a service --</option>
+              <option>Training &amp; Capacity Development</option>
+              <option>Research &amp; Surveys</option>
+              <option>Study Missions &amp; Conference Tourism</option>
+              <option>Study Abroad &amp; Work Abroad</option>
+              <option>Performance Contracting Support</option>
+              <option>Recruitment &amp; HR Consultancy</option>
+              <option>Entrepreneurship Development</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="mform-group">
+            <label for="message">Message / inquiry *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              maxlength="2000"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="sendButton"
+            class="btn btn-primary"
+            style="width: 100%"
+          >
+            Send inquiry <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         Program Registration Modal
+         ============================================================ -->
+    <div
+      class="reg-modal"
+      id="registerModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="registerModalTitle"
+      aria-hidden="true"
+    >
+      <div class="reg-modal-overlay" id="registerModalOverlay"></div>
+      <div class="reg-modal-content">
+        <button
+          type="button"
+          class="reg-modal-close"
+          id="closeRegisterModal"
+          aria-label="Close registration form"
+        >
+          &times;
+        </button>
+
+        <div class="reg-modal-header">
+          <span class="reg-badge">
+            <i class="fa-solid fa-graduation-cap"></i> Program Registration
+          </span>
+          <h2 id="registerModalTitle">Register for this program</h2>
+          <p>Fill in your details and we'll reserve your seat.</p>
+        </div>
+
+        <!-- Program summary card (auto-filled) -->
+        <div class="reg-program-summary">
+          <div class="reg-summary-row">
+            <i class="fa-solid fa-book-open"></i>
+            <div>
+              <span class="reg-summary-label">Programme</span>
+              <strong id="regProgram">—</strong>
+            </div>
+          </div>
+          <div class="reg-summary-row">
+            <i class="fa-regular fa-calendar-days"></i>
+            <div>
+              <span class="reg-summary-label">Dates</span>
+              <strong id="regDates">—</strong>
+            </div>
+          </div>
+          <div class="reg-summary-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <span class="reg-summary-label">Venue</span>
+              <strong id="regVenue">—</strong>
+            </div>
+          </div>
+          <div class="reg-summary-row">
+            <i class="fa-solid fa-tag"></i>
+            <div>
+              <span class="reg-summary-label">Focus area</span>
+              <strong id="regFocus">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <form id="registerForm" class="reg-form" method="POST" novalidate>
+          <!-- Hidden fields auto-populated -->
+          <input type="hidden" id="regProgramHidden" name="program" />
+          <input type="hidden" id="regDatesHidden" name="dates" />
+          <input type="hidden" id="regVenueHidden" name="venue" />
+          <input type="hidden" id="regFocusHidden" name="focus" />
+          <input type="hidden" id="regYearHidden" name="year" />
+
+          <div class="reg-form-row">
+            <div class="reg-form-group">
+              <label for="regFullName"
+                >Full name <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="regFullName"
+                name="fullname"
+                required
+                maxlength="100"
+                placeholder="e.g. Jane Wanjiku"
+              />
+            </div>
+            <div class="reg-form-group">
+              <label for="regPhone"
+                >Phone number <span class="req">*</span></label
+              >
+              <input
+                type="tel"
+                id="regPhone"
+                name="phone"
+                required
+                maxlength="25"
+                placeholder="+254 7XX XXX XXX"
+              />
+            </div>
+          </div>
+
+          <div class="reg-form-row">
+            <div class="reg-form-group">
+              <label for="regEmail"
+                >Email address <span class="req">*</span></label
+              >
+              <input
+                type="email"
+                id="regEmail"
+                name="email"
+                required
+                maxlength="120"
+                placeholder="you@organisation.com"
+              />
+            </div>
+            <div class="reg-form-group">
+              <label for="regOrg"
+                >Organisation <span class="optional">(optional)</span></label
+              >
+              <input
+                type="text"
+                id="regOrg"
+                name="organisation"
+                maxlength="150"
+                placeholder="e.g. Public Service Commission"
+              />
+            </div>
+          </div>
+
+          <div class="reg-form-actions">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              id="regSendBtn"
+            >
+              <i class="fa-solid fa-paper-plane"></i> Send Registration
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        /* =====================================================
+           Filter toolbar — hide/show rows across both tables
+           ===================================================== */
+        var buttons = document.querySelectorAll("#filterBar .filter-btn");
+        var rows = document.querySelectorAll(
+          "#calTable2026 tbody tr, #calTable2027 tbody tr",
+        );
+        buttons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            buttons.forEach(function (b) {
+              b.classList.remove("active");
+            });
+            btn.classList.add("active");
+            var filter = btn.getAttribute("data-filter");
+            rows.forEach(function (row) {
+              var show =
+                filter === "all" || row.getAttribute("data-cat") === filter;
+              row.classList.toggle("row-hidden", !show);
+            });
+          });
+        });
+
+        /* =====================================================
+           Contact / Inquiry modal
+           ===================================================== */
+        var modal = document.getElementById("contactModal");
+        var openBtn = document.getElementById("openContactModal");
+        var closeBtn = document.getElementById("closeContactModal");
+        var overlay = document.getElementById("contactModalOverlay");
+
+        function openModal() {
+          modal.classList.add("active");
+          document.body.classList.add("modal-open");
+        }
+        function closeModal() {
+          modal.classList.remove("active");
+          document.body.classList.remove("modal-open");
+        }
+        if (openBtn) openBtn.addEventListener("click", openModal);
+        if (closeBtn) closeBtn.addEventListener("click", closeModal);
+        if (overlay) overlay.addEventListener("click", closeModal);
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal.classList.contains("active"))
+            closeModal();
+        });
+
+        /* =====================================================
+           Contact form submission
+           ===================================================== */
+        var form = document.getElementById("modalContactForm");
+        var alertFn = window.Swal
+          ? window.Swal.fire.bind(window.Swal)
+          : function (opts) {
+              alert(opts.title + (opts.text ? " — " + opts.text : ""));
+            };
+
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var fields = {
+              fullname: document.getElementById("fullname"),
+              org: document.getElementById("org"),
+              email: document.getElementById("email"),
+              subject: document.getElementById("subject"),
+              phone: document.getElementById("phone"),
+              service: document.getElementById("service"),
+              message: document.getElementById("message"),
+            };
+            var payload = {
+              "Full Name": fields.fullname.value,
+              "Organization Name": fields.org.value,
+              Subject: fields.subject.value,
+              Email: fields.email.value,
+              Phone: fields.phone.value,
+              "Service of Interest": fields.service.value,
+              Message: fields.message.value,
+            };
+
+            fetch("send.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            })
+              .then(function (response) {
+                return response.json();
+              })
+              .then(function (data) {
+                if (data.status === "success") {
+                  alertFn({
+                    icon: "success",
+                    title: "Message sent",
+                    text: "We'll be in touch shortly.",
+                    confirmButtonColor: "#4d2682",
+                  });
+                  form.reset();
+                  closeModal();
+                } else {
+                  alertFn({
+                    icon: "error",
+                    title: "Message not sent",
+                    text: "Please try again or email info@incad.org directly.",
+                    confirmButtonColor: "#4d2682",
+                  });
+                }
+              })
+              .catch(function () {
+                alertFn({
+                  icon: "error",
+                  title: "Message not sent",
+                  text: "Please try again or email info@incad.org directly.",
+                  confirmButtonColor: "#4d2682",
+                });
+              });
+          });
+        }
+
+        /* =====================================================
+           Program Registration Modal
+           ===================================================== */
+        var regModal = document.getElementById("registerModal");
+        var regOverlay = document.getElementById("registerModalOverlay");
+        var regCloseBtn = document.getElementById("closeRegisterModal");
+        var regForm = document.getElementById("registerForm");
+        var regSendBtn = document.getElementById("regSendBtn");
+
+        // Summary DOM
+        var elProgram = document.getElementById("regProgram");
+        var elDates = document.getElementById("regDates");
+        var elVenue = document.getElementById("regVenue");
+        var elFocus = document.getElementById("regFocus");
+
+        // Hidden inputs
+        var hProgram = document.getElementById("regProgramHidden");
+        var hDates = document.getElementById("regDatesHidden");
+        var hVenue = document.getElementById("regVenueHidden");
+        var hFocus = document.getElementById("regFocusHidden");
+        var hYear = document.getElementById("regYearHidden");
+
+        function openRegModal(data) {
+          elProgram.textContent = data.program || "—";
+          elDates.textContent = data.dates || "—";
+          elVenue.textContent = data.venue || "—";
+          elFocus.textContent = data.focus || "—";
+
+          hProgram.value = data.program || "";
+          hDates.value = data.dates || "";
+          hVenue.value = data.venue || "";
+          hFocus.value = data.focus || "";
+          hYear.value = data.year || "";
+
+          regModal.classList.add("active");
+          regModal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+
+          setTimeout(function () {
+            var first = document.getElementById("regFullName");
+            if (first) first.focus();
+          }, 120);
+        }
+
+        function closeRegModal() {
+          regModal.classList.remove("active");
+          regModal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("modal-open");
+        }
+
+        document.querySelectorAll(".btn-register").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            openRegModal({
+              program: btn.getAttribute("data-program"),
+              dates: btn.getAttribute("data-dates"),
+              venue: btn.getAttribute("data-venue"),
+              focus: btn.getAttribute("data-focus"),
+              year: btn.getAttribute("data-year"),
+            });
+          });
+        });
+
+        if (regCloseBtn) regCloseBtn.addEventListener("click", closeRegModal);
+        if (regOverlay) regOverlay.addEventListener("click", closeRegModal);
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && regModal.classList.contains("active")) {
+            closeRegModal();
+          }
+        });
+
+        if (regForm) {
+          regForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var fullName = document.getElementById("regFullName");
+            var phone = document.getElementById("regPhone");
+            var email = document.getElementById("regEmail");
+            var org = document.getElementById("regOrg");
+            var valid = true;
+
+            [fullName, phone, email].forEach(function (el) {
+              el.classList.remove("error");
+              if (!el.value.trim()) {
+                el.classList.add("error");
+                valid = false;
+              }
+            });
+
+            var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value.trim() && !emailRe.test(email.value.trim())) {
+              email.classList.add("error");
+              valid = false;
+            }
+
+            if (!valid) {
+              if (window.Swal) {
+                Swal.fire({
+                  icon: "warning",
+                  title: "Please check your details",
+                  text: "Full name, phone and a valid email are required.",
+                  confirmButtonColor: "#4d2682",
+                });
+              }
+              return;
+            }
+
+            var payload = {
+              "Full Name": fullName.value.trim(),
+              "Phone Number": phone.value.trim(),
+              Email: email.value.trim(),
+              Organisation: org.value.trim() || "N/A",
+              Programme: hProgram.value,
+              Dates: hDates.value,
+              Venue: hVenue.value,
+              "Focus Area": hFocus.value,
+              Year: hYear.value,
+              "Submitted At": new Date().toISOString(),
+            };
+
+            var originalHTML = regSendBtn.innerHTML;
+            regSendBtn.disabled = true;
+            regSendBtn.innerHTML =
+              '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+            fetch("register.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            })
+              .then(function (res) {
+                return res.json();
+              })
+              .then(function (data) {
+                regSendBtn.disabled = false;
+                regSendBtn.innerHTML = originalHTML;
+
+                if (data && data.status === "success") {
+                  if (window.Swal) {
+                    Swal.fire({
+                      icon: "success",
+                      title: "Registration received!",
+                      html:
+                        "You're registered for <strong>" +
+                        payload["Programme"] +
+                        "</strong>.<br>We'll be in touch shortly.",
+                      confirmButtonColor: "#4d2682",
+                    });
+                  }
+                  regForm.reset();
+                  closeRegModal();
+                } else {
+                  throw new Error("Server responded with failure");
+                }
+              })
+              .catch(function () {
+                regSendBtn.disabled = false;
+                regSendBtn.innerHTML = originalHTML;
+
+                if (window.Swal) {
+                  Swal.fire({
+                    icon: "error",
+                    title: "Registration not sent",
+                    text: "Please try again or email info@incad.org directly.",
+                    confirmButtonColor: "#4d2682",
+                  });
+                }
+              });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="Moments from InCAD training programs, regional cohorts and conferences across Kenya, Tanzania and Uganda."
+    />
+    <meta
+      property="og:title"
+      content="Gallery | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="A visual record of InCAD's programs — leadership, labour relations, wellness, communication and regional cohorts."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   Gallery Page — page-specific styles (masonry grid + lightbox).
+   Deliberately separate from the compact portfolio logo-modal in
+   styles.css — a photo gallery needs a full-bleed viewer, not a
+   160px thumbnail box.
+   ================================================================ */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 90px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+        margin-bottom: 14px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.1rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .hero-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .page-hero .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.86rem;
+        color: #fff;
+      }
+      .page-hero .hero-badge i {
+        color: var(--gold-soft);
+      }
+
+      /* ---------- Filter pills (reuses .cal-pill look from shared sheet) ---------- */
+      .gallery-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 36px;
+      }
+
+      /* ---------- Masonry grid ---------- */
+      .masonry {
+        columns: 4 260px;
+        column-gap: 18px;
+      }
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 18px;
+        border-radius: var(--radius-m);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        background: var(--paper);
+        box-shadow: var(--shadow-sm);
+        transition:
+          transform 0.3s var(--ease),
+          box-shadow 0.3s var(--ease);
+      }
+      .masonry-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .masonry-item img {
+        width: 100%;
+        display: block;
+        transition: transform 0.5s var(--ease);
+      }
+      .masonry-item:hover img {
+        transform: scale(1.04);
+      }
+      .masonry-caption {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 18px 16px 14px;
+        background: linear-gradient(to top, rgba(6, 42, 68, 0.88), transparent);
+        color: #fff;
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+          opacity 0.3s var(--ease),
+          transform 0.3s var(--ease);
+      }
+      .masonry-item:hover .masonry-caption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .masonry-caption strong {
+        display: block;
+        font-size: 0.92rem;
+        margin-bottom: 4px;
+      }
+      .masonry-caption span {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .masonry-zoom {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(6, 42, 68, 0.55);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        opacity: 0;
+        transition: opacity 0.3s var(--ease);
+      }
+      .masonry-item:hover .masonry-zoom {
+        opacity: 1;
+      }
+
+      @media (max-width: 960px) {
+        .masonry {
+          columns: 3 220px;
+        }
+        .page-hero {
+          padding: 130px 0 70px;
+        }
+      }
+      @media (max-width: 640px) {
+        .masonry {
+          columns: 2 160px;
+          column-gap: 12px;
+        }
+        .masonry-item {
+          margin-bottom: 12px;
+        }
+      }
+
+      /* ---------- Lightbox ---------- */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 400;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .lightbox[aria-hidden="false"] {
+        display: flex;
+      }
+      .lightbox-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 20, 32, 0.92);
+      }
+      .lightbox-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 1000px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .lightbox-img-wrap {
+        max-height: 74vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      .lightbox-img-wrap img {
+        max-width: 100%;
+        max-height: 74vh;
+        border-radius: var(--radius-s);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      }
+      .lightbox-caption {
+        text-align: center;
+        color: #fff;
+      }
+      .lightbox-caption strong {
+        display: block;
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+      }
+      .lightbox-caption span {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .lightbox-close {
+        position: absolute;
+        top: -6px;
+        right: 0;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .lightbox-close:hover {
+        color: var(--gold-soft);
+      }
+      .lightbox-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #fff;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        font-size: 1.6rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+      }
+      .lightbox-nav:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .lightbox-nav.prev {
+        left: 24px;
+      }
+      .lightbox-nav.next {
+        right: 24px;
+      }
+      .lightbox-counter {
+        position: absolute;
+        top: -6px;
+        left: 0;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.82rem;
+      }
+      @media (max-width: 640px) {
+        .lightbox-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 1.3rem;
+        }
+        .lightbox-nav.prev {
+          left: 8px;
+        }
+        .lightbox-nav.next {
+          right: 8px;
+        }
+      }
+
+      /* ---------- Follow us strip ---------- */
+      .follow-strip {
+        background: var(--paper);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 44px 0;
+        text-align: center;
+      }
+      .follow-strip p {
+        max-width: 52ch;
+        margin: 8px auto 22px;
+      }
+      .follow-links {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .follow-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 11px 20px;
+        border-radius: 999px;
+        border: 1px solid var(--border-cool);
+        background: var(--surface);
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--ink);
+        transition: all 0.2s var(--ease);
+      }
+      .follow-links a:hover {
+        border-color: var(--purple);
+        color: var(--purple);
+      }
+      .follow-links i {
+        color: var(--gold);
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html" class="active">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Gallery</span>
+          </nav>
+          <h1>Moments from the room where capacity gets built</h1>
+          <p>
+            A visual record of InCAD programs, from leadership workshops in
+            Nairobi to regional cohorts in Arusha, Kampala and many more.
+          </p>
+          <div class="hero-badges">
+            <span class="hero-badge"
+              ><i class="fa-solid fa-images"></i>14 moments</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-layer-group"></i>6 categories</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-solid fa-earth-africa"></i>3 countries</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters + masonry -->
+      <section id="gallery-grid">
+        <div class="container">
+          <div class="section-head center" data-reveal>
+            <p class="section-kicker">Gallery</p>
+            <h2>Browse by program type</h2>
+            <p class="section-sub">
+              Select a category to filter, or click any photo for a closer look.
+            </p>
+          </div>
+
+          <div class="gallery-filters cal-filters" data-reveal>
+            <button class="cal-pill is-active" data-filter="all">All</button>
+            <button class="cal-pill" data-filter="leadership">
+              Leadership &amp; Governance
+            </button>
+            <button class="cal-pill" data-filter="regional">
+              Regional Programs
+            </button>
+            <button class="cal-pill" data-filter="wellness-safety">
+              Wellness &amp; Safety
+            </button>
+            <button class="cal-pill" data-filter="communication">
+              Communication &amp; PR
+            </button>
+            <button class="cal-pill" data-filter="conference">
+              Conference
+            </button>
+            <button class="cal-pill" data-filter="other">Other</button>
+          </div>
+
+          <div class="masonry" id="masonry" data-reveal>
+            <figure
+              class="masonry-item"
+              data-category="leadership"
+              data-index="0"
+            >
+              <img
+                src="./images/gallery/gallery-01.jpg"
+                alt="Training of Trainers programme in session, Naivasha"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Training of Trainers (TOT) Programme</strong
+                ><span>Morendat Hotel, Naivasha</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="communication"
+              data-index="1"
+            >
+              <img
+                src="./images/gallery/gallery-02.jpg"
+                alt="Communication and presentation skills workshop, Mombasa"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong
+                  >Effective Communication &amp; Presentation Skills</strong
+                ><span>PrideInn Paradise, Mombasa</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="regional"
+              data-index="2"
+            >
+              <img
+                src="./images/gallery/gallery-03.jpg"
+                alt="Labour laws and industrial relations training, Arusha"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Labour Laws &amp; Industrial Relations</strong
+                ><span>Arusha, Tanzania — Regional</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="wellness-safety"
+              data-index="3"
+            >
+              <img
+                src="./images/gallery/gallery-04.jpg"
+                alt="HIV/AIDS workplace mainstreaming session, Eldoret"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>HIV/AIDS Workplace Mainstreaming</strong
+                ><span>Boma Inn, Eldoret</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="wellness-safety"
+              data-index="4"
+            >
+              <img
+                src="./images/gallery/gallery-05.jpg"
+                alt="Occupational safety and health management training, Lake Naivasha"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Occupational Safety &amp; Health Management</strong
+                ><span>Lake Naivasha Resort</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="wellness-safety"
+              data-index="5"
+            >
+              <img
+                src="./images/gallery/gallery-06.jpg"
+                alt="Drug and substance abuse prevention workshop, Mombasa"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Drug &amp; Substance Abuse Prevention</strong
+                ><span>Mombasa Beach Hotel</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="leadership"
+              data-index="6"
+            >
+              <img
+                src="./images/gallery/gallery-07.jpg"
+                alt="Strategic leadership and management skills training, Nairobi"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Strategic Leadership &amp; Management Skills</strong
+                ><span>Nairobi Serena Hotel</span>
+              </figcaption>
+            </figure>
+            <figure class="masonry-item" data-category="other" data-index="7">
+              <img
+                src="./images/gallery/gallery-08.jpg"
+                alt="Tax audit and revenue administration workshop, Naivasha"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Tax Audit &amp; Revenue Administration</strong
+                ><span>Morendat, Naivasha</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="regional"
+              data-index="8"
+            >
+              <img
+                src="./images/gallery/gallery-09.jpg"
+                alt="Labour relations and collective bargaining session, Arusha"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Labour Relations &amp; Collective Bargaining</strong
+                ><span>Arusha, Tanzania — Regional</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="leadership"
+              data-index="9"
+            >
+              <img
+                src="./images/gallery/gallery-10.jpg"
+                alt="Advanced training of trainers programme, Kisumu"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Training of Trainers (Advanced TOT)</strong
+                ><span>Ciala Resort, Kisumu</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="communication"
+              data-index="10"
+            >
+              <img
+                src="./images/gallery/gallery-11.jpg"
+                alt="Strategic communication and public relations workshop, Mombasa"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Strategic Communication &amp; Public Relations</strong
+                ><span>Mombasa Beach Hotel</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="regional"
+              data-index="11"
+            >
+              <img
+                src="./images/gallery/gallery-12.jpg"
+                alt="Leadership, governance and ethics programme, Arusha"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Leadership, Governance &amp; Ethics</strong
+                ><span>Arusha, Tanzania — Regional</span>
+              </figcaption>
+            </figure>
+            <figure
+              class="masonry-item"
+              data-category="conference"
+              data-index="12"
+            >
+              <img
+                src="./images/gallery/gallery-13.jpg"
+                alt="Annual capacity development conference, Naivasha"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Annual Capacity Development Conference</strong
+                ><span>Morendat, Naivasha — Flagship Event</span>
+              </figcaption>
+            </figure>
+            <figure class="masonry-item" data-category="other" data-index="13">
+              <img
+                src="./images/gallery/gallery-14.jpg"
+                alt="Gender mainstreaming and inclusion workshop, Eldoret"
+                loading="lazy"
+              />
+              <span class="masonry-zoom"
+                ><i class="fa-solid fa-expand"></i
+              ></span>
+              <figcaption class="masonry-caption">
+                <strong>Gender Mainstreaming &amp; Inclusion</strong
+                ><span>Boma Inn, Eldoret</span>
+              </figcaption>
+            </figure>
+          </div>
+          <p
+            class="cal-empty"
+            id="masonry-empty"
+            hidden
+            style="text-align: center; color: var(--muted); padding: 40px 0"
+          >
+            No photos in this category yet.
+          </p>
+        </div>
+      </section>
+
+      <!-- Follow us -->
+      <section class="follow-strip">
+        <div class="container">
+          <p
+            class="section-kicker"
+            style="justify-content: center; display: flex"
+          >
+            Stay in the room
+          </p>
+          <h2>More moments, posted as they happen</h2>
+          <p>
+            We post new program photos to our social channels between website
+            updates, follow along for the freshest look at what's happening on
+            the ground.
+          </p>
+          <div class="follow-links">
+            <a
+              href="https://www.linkedin.com/company/institute-for-capacity-building/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fa-brands fa-linkedin-in"></i>LinkedIn</a
+            >
+            <a
+              href="https://www.facebook.com/InstituteforCapacityDevelopment"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fa-brands fa-facebook-f"></i>Facebook</a
+            >
+            <a
+              href="https://www.instagram.com/incadke/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fa-brands fa-instagram"></i>Instagram</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-camera cta-icon"></i>
+          <h2>Want your program featured here?</h2>
+          <p>
+            Book a training with InCAD and we'll help document the moments worth
+            keeping.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg"
+              >Get in touch</a
+            >
+            <a href="index.html#programs" class="btn btn-ghost-light"
+              >See program calendar</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-overlay"></div>
+      <button class="lightbox-nav prev" aria-label="Previous photo">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div
+        class="lightbox-inner"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lightbox-caption-title"
+      >
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <div class="lightbox-img-wrap">
+          <img id="lightbox-img" src="" alt="" />
+        </div>
+        <div class="lightbox-caption">
+          <strong id="lightbox-caption-title"></strong>
+          <span id="lightbox-caption-sub"></span>
+        </div>
+      </div>
+      <button class="lightbox-nav next" aria-label="Next photo">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // Gallery filter + lightbox — page-local, only runs on this page.
+      (function () {
+        const filterBtns = document.querySelectorAll(
+          ".gallery-filters .cal-pill",
+        );
+        const items = Array.from(document.querySelectorAll(".masonry-item"));
+        const emptyMsg = document.getElementById("masonry-empty");
+        let visible = items;
+
+        function applyFilter(filter) {
+          visible = items.filter(
+            (it) =>
+              filter === "all" || it.getAttribute("data-category") === filter,
+          );
+          items.forEach((it) => {
+            const show =
+              filter === "all" || it.getAttribute("data-category") === filter;
+            it.style.display = show ? "" : "none";
+          });
+          if (emptyMsg) emptyMsg.hidden = visible.length > 0;
+        }
+        filterBtns.forEach((btn) =>
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => b.classList.remove("is-active"));
+            btn.classList.add("is-active");
+            applyFilter(btn.getAttribute("data-filter"));
+          }),
+        );
+
+        // Lightbox
+        const lightbox = document.getElementById("lightbox");
+        const lbImg = document.getElementById("lightbox-img");
+        const lbTitle = document.getElementById("lightbox-caption-title");
+        const lbSub = document.getElementById("lightbox-caption-sub");
+        const lbCounter = document.getElementById("lightbox-counter");
+        const closeBtn = lightbox.querySelector(".lightbox-close");
+        const overlay = lightbox.querySelector(".lightbox-overlay");
+        const prevBtn = lightbox.querySelector(".lightbox-nav.prev");
+        const nextBtn = lightbox.querySelector(".lightbox-nav.next");
+        let current = 0;
+
+        function showPhoto(i) {
+          if (!visible.length) return;
+          current = (i + visible.length) % visible.length;
+          const item = visible[current];
+          const img = item.querySelector("img");
+          const title = item.querySelector(".masonry-caption strong");
+          const sub = item.querySelector(".masonry-caption span");
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lbTitle.textContent = title ? title.textContent : "";
+          lbSub.textContent = sub ? sub.textContent : "";
+          lbCounter.textContent = current + 1 + " / " + visible.length;
+        }
+        function openLightbox(item) {
+          const idx = visible.indexOf(item);
+          showPhoto(idx >= 0 ? idx : 0);
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          closeBtn.focus();
+        }
+        function closeLightbox() {
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+        items.forEach((item) =>
+          item.addEventListener("click", () => openLightbox(item)),
+        );
+        closeBtn.addEventListener("click", closeLightbox);
+        overlay.addEventListener("click", closeLightbox);
+        prevBtn.addEventListener("click", () => showPhoto(current - 1));
+        nextBtn.addEventListener("click", () => showPhoto(current + 1));
+        document.addEventListener("keydown", (e) => {
+          if (lightbox.getAttribute("aria-hidden") === "false") {
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") showPhoto(current - 1);
+            if (e.key === "ArrowRight") showPhoto(current + 1);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

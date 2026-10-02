@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="Answers to common questions about InCAD programs, enrollment, fees, regional cohorts and our services."
+    />
+    <meta
+      property="og:title"
+      content="FAQs | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="Quick answers about enrollment, fees, regional programs and services."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   FAQ Page — page-specific styles only.
+   ================================================================ */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 70px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.1rem, 4.2vw, 2.9rem);
+        margin-bottom: 12px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.05rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      /* ---------- Search box ---------- */
+      .faq-search {
+        position: relative;
+        max-width: 520px;
+        margin-top: 30px;
+      }
+      .faq-search i {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .faq-search input {
+        width: 100%;
+        padding: 15px 18px 15px 46px;
+        border-radius: 999px;
+        border: 1.5px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-family: inherit;
+        font-size: 0.96rem;
+      }
+      .faq-search input::placeholder {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .faq-search input:focus {
+        outline: none;
+        border-color: var(--gold-soft);
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      /* ---------- Category pills ---------- */
+      .faq-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      /* ---------- FAQ list (grouped by category headers) ---------- */
+      .faq-wrap {
+        max-width: 820px;
+        margin: 0 auto;
+      }
+      .faq-group {
+        margin-bottom: 38px;
+      }
+      .faq-group-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-head);
+        font-size: 1.05rem;
+        color: var(--purple-deep);
+        margin-bottom: 16px;
+      }
+      .faq-group-title i {
+        color: var(--gold);
+        font-size: 0.95rem;
+      }
+      .faq-item {
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-s);
+        margin-bottom: 12px;
+        overflow: hidden;
+        background: var(--surface);
+        transition: border-color 0.2s var(--ease);
+      }
+      .faq-item:hover {
+        border-color: var(--border);
+      }
+      .faq-q {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 22px;
+        background: none;
+        border: none;
+        text-align: left;
+        font-family: var(--font-head);
+        font-size: 1rem;
+        color: var(--purple-deep);
+        cursor: pointer;
+      }
+      .faq-q i {
+        transition: transform 0.25s var(--ease);
+        color: var(--gold);
+        flex: 0 0 auto;
+      }
+      .faq-item.is-open .faq-q i {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s var(--ease);
+      }
+      .faq-a p {
+        padding: 0 22px 18px;
+        font-size: 0.92rem;
+      }
+      .faq-a p a {
+        color: var(--purple-deep);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .faq-no-results {
+        text-align: center;
+        color: var(--muted);
+        padding: 40px 0;
+      }
+
+      /* ---------- Still have questions card ---------- */
+      .faq-contact-card {
+        max-width: 760px;
+        margin: 0 auto;
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-m);
+        padding: 44px;
+        text-align: center;
+      }
+      .faq-contact-card i {
+        color: var(--gold);
+        font-size: 1.7rem;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .faq-contact-card h2 {
+        margin-bottom: 10px;
+      }
+      .faq-contact-card p {
+        max-width: 50ch;
+        margin: 0 auto 24px;
+      }
+      .faq-contact-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 960px) {
+        .page-hero {
+          padding: 130px 0 60px;
+        }
+      }
+      @media (max-width: 560px) {
+        .faq-contact-card {
+          padding: 32px 22px;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254739965696"
+            ><i class="fa-solid fa-phone"></i>+254 739 965 696</a
+          >
+          <a href="tel:+254750589082"
+            ><i class="fa-solid fa-phone"></i>+254 750 589 082</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>FAQs</span>
+          </nav>
+          <h1>Frequently asked questions</h1>
+          <p>
+            Quick answers about enrollment, fees, regional programs and our
+            services. Can't find what you need? Search below or get in touch.
+          </p>
+          <div class="faq-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="faq-search-input"
+              placeholder='Search questions — e.g. "refund", "Arusha", "fees"'
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters + list -->
+      <section>
+        <div class="container">
+          <div class="faq-filters cal-filters" data-reveal>
+            <button class="cal-pill is-active" data-filter="all">All</button>
+            <button class="cal-pill" data-filter="general">General</button>
+            <button class="cal-pill" data-filter="enrollment">
+              Programs &amp; Enrollment
+            </button>
+            <button class="cal-pill" data-filter="fees">
+              Fees &amp; Payment
+            </button>
+            <button class="cal-pill" data-filter="regional">
+              Regional Programs
+            </button>
+            <button class="cal-pill" data-filter="services">Services</button>
+            <button class="cal-pill" data-filter="legal">
+              Legal &amp; Privacy
+            </button>
+          </div>
+
+          <div class="faq-wrap" id="faq-wrap">
+            <div class="faq-group" data-group="general">
+              <p class="faq-group-title">
+                <i class="fa-solid fa-circle-info"></i>General
+              </p>
+
+              <div class="faq-item" data-category="general">
+                <button class="faq-q" aria-expanded="false">
+                  What does InCAD do?<i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    InCAD — Institute for Capacity Development — is a Kenyan
+                    training institution, registered in 2011, that delivers
+                    training and capacity development, research and surveys,
+                    study missions, performance contracting support,
+                    recruitment/HR consultancy and entrepreneurship programs.
+                    See our full <a href="services.html">Services page</a> for
+                    details.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="general">
+                <button class="faq-q" aria-expanded="false">
+                  How long has InCAD been operating?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    InCAD was registered in 2011 — over fifteen years of
+                    delivering demand‑driven capacity development programs.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="general">
+                <button class="faq-q" aria-expanded="false">
+                  Which sectors do you work with?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Government agencies, county governments, corporate
+                    organizations, public‑sector institutions, regulatory
+                    authorities, SACCOs, educational institutions, and
+                    SMEs/entrepreneurs. See examples on our
+                    <a href="portfolio.html">Portfolio page</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="general">
+                <button class="faq-q" aria-expanded="false">
+                  Do you operate outside Kenya?<i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Yes — alongside our Kenyan venues, we run regional cohorts
+                    in Arusha, Tanzania and Kampala, Uganda.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-group" data-group="enrollment">
+              <p class="faq-group-title">
+                <i class="fa-solid fa-clipboard-list"></i>Programs &amp;
+                Enrollment
+              </p>
+
+              <div class="faq-item" data-category="enrollment">
+                <button class="faq-q" aria-expanded="false">
+                  How do I enroll in a program?<i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Browse the
+                    <a href="index.html#programs">program calendar</a> and reach
+                    out through our <a href="contact.html">Contact page</a> with
+                    the program, your organization, and the number of
+                    participants. Submitting an enquiry doesn't guarantee a
+                    place until we confirm it in writing.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="enrollment">
+                <button class="faq-q" aria-expanded="false">
+                  Can I request a different date or venue?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Yes — you're welcome to request a change of programme date
+                    or venue to suit your organization's schedule and location
+                    preference. We accommodate this where reasonably possible.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="enrollment">
+                <button class="faq-q" aria-expanded="false">
+                  What's the difference between open enrollment, in‑house and
+                  regional programs?<i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    <strong>Open enrollment</strong> means joining a scheduled
+                    cohort on our published calendar alongside participants from
+                    other organizations.
+                    <strong>In‑house/customized</strong> programs are delivered
+                    at your venue, built around your context.
+                    <strong>Regional cohorts</strong> run cross‑border in Arusha
+                    or Kampala. See
+                    <a href="services.html#engagement">our engagement models</a>
+                    for a full comparison.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="enrollment">
+                <button class="faq-q" aria-expanded="false">
+                  Is there a minimum group size for an in‑house program?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    In‑house programs are generally most cost‑efficient for
+                    larger teams, but we can discuss options for smaller groups
+                    — get in touch with your team size and we'll advise on the
+                    best fit.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-group" data-group="fees">
+              <p class="faq-group-title">
+                <i class="fa-solid fa-coins"></i>Fees &amp; Payment
+              </p>
+
+              <div class="faq-item" data-category="fees">
+                <button class="faq-q" aria-expanded="false">
+                  How much do the monthly online sessions cost?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    KSh 3,000 per session. Sessions run 8:00–9:00 AM and cover
+                    tax updates (2nd Tuesday), labour law updates (3rd
+                    Thursday), and a communication &amp; leadership masterclass
+                    (last Friday).
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="fees">
+                <button class="faq-q" aria-expanded="false">
+                  How are fees for in‑house or customized programs determined?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    These are agreed individually based on scope, duration and
+                    location, and confirmed in a written proposal before
+                    delivery — get in touch for a quote.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="fees">
+                <button class="faq-q" aria-expanded="false">
+                  What payment methods do you accept?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Payment terms and accepted methods are communicated directly
+                    to your organization once a booking is confirmed, since
+                    these can vary by program type. See our
+                    <a href="terms.html#payments">Terms of Service</a> for the
+                    general policy.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-group" data-group="regional">
+              <p class="faq-group-title">
+                <i class="fa-solid fa-earth-africa"></i>Regional Programs
+              </p>
+
+              <div class="faq-item" data-category="regional">
+                <button class="faq-q" aria-expanded="false">
+                  Where do your regional cohorts run?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Currently in Arusha, Tanzania and Kampala, Uganda — check
+                    the program calendar for upcoming dates and focus areas.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="regional">
+                <button class="faq-q" aria-expanded="false">
+                  Is travel or accommodation included in regional program
+                  fees?<i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    This varies by program and is confirmed at the time of
+                    booking — ask us directly when you enquire about a specific
+                    regional cohort.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="regional">
+                <button class="faq-q" aria-expanded="false">
+                  Who handles logistics for a regional program?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    We coordinate with a local venue or co‑facilitating partner
+                    for on‑the‑ground logistics. Only the information necessary
+                    for that coordination is shared — see our
+                    <a href="privacy.html#transfers">Privacy Policy</a> for
+                    details.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-group" data-group="services">
+              <p class="faq-group-title">
+                <i class="fa-solid fa-briefcase"></i>Services
+              </p>
+
+              <div class="faq-item" data-category="services">
+                <button class="faq-q" aria-expanded="false">
+                  What's covered under Training &amp; Capacity Development?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Performance Management, Corporate Governance, Strategic
+                    Planning, Customer Care, Records Management, HR Management,
+                    Procurement, ICT, Audit and Finance, and Project Management.
+                    See the
+                    <a href="services.html#training-capacity-development"
+                      >full breakdown</a
+                    >.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="services">
+                <button class="faq-q" aria-expanded="false">
+                  Can services be combined — e.g. a survey plus a training
+                  program?<i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Yes. Many clients pair Research &amp; Surveys (like a
+                    skills‑gap analysis) with a Training &amp; Capacity
+                    Development program built directly on those findings.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="services">
+                <button class="faq-q" aria-expanded="false">
+                  Do you help with recruitment?<i class="fa-solid fa-plus"></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Yes — our Recruitment &amp; HR Consultancy service sources
+                    qualified personnel for temporary, contract and permanent
+                    positions across sectors. See
+                    <a href="services.html#recruitment-hr">details here</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-group" data-group="legal">
+              <p class="faq-group-title">
+                <i class="fa-solid fa-scale-balanced"></i>Legal &amp; Privacy
+              </p>
+
+              <div class="faq-item" data-category="legal">
+                <button class="faq-q" aria-expanded="false">
+                  Where can I read your Terms of Service and Privacy Policy?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Our full <a href="terms.html">Terms of Service</a> and
+                    <a href="privacy.html">Privacy Policy</a> are linked in the
+                    footer of every page.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="legal">
+                <button class="faq-q" aria-expanded="false">
+                  How do I request that my data be corrected or deleted?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Contact us using the details on our
+                    <a href="contact.html">Contact page</a> — see the "Your
+                    Rights" section of our
+                    <a href="privacy.html#your-rights">Privacy Policy</a> for
+                    the full list of options.
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-category="legal">
+                <button class="faq-q" aria-expanded="false">
+                  Who do I contact with a question that isn't answered here?<i
+                    class="fa-solid fa-plus"
+                  ></i>
+                </button>
+                <div class="faq-a">
+                  <p>
+                    Reach us at
+                    <a href="mailto:info@incad.org">info@incad.org</a>, call
+                    0202173685 / +254 722 741 293, or use the form on our
+                    <a href="contact.html">Contact page</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="faq-no-results" id="faq-no-results" hidden>
+            No questions match your search — try a different word, or
+            <a href="contact.html">ask us directly</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Still have questions -->
+      <section class="bg-soft">
+        <div class="container">
+          <div class="faq-contact-card" data-reveal>
+            <i class="fa-solid fa-comments"></i>
+            <h2>Still have questions?</h2>
+            <p>
+              We're happy to talk through your organization's specific needs
+              before you commit to a program.
+            </p>
+            <div class="faq-contact-actions">
+              <a href="contact.html" class="btn btn-primary">Contact us</a>
+              <a href="services.html" class="btn btn-ghost">Explore services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-handshake cta-icon"></i>
+          <h2>Ready to strengthen your organization?</h2>
+          <p>
+            Partner with InCAD to build sustainable capacity and outstanding
+            performance.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-outline btn-lg"
+              >Get in touch</a
+            >
+            <a href="index.html#programs" class="btn btn-ghost-light"
+              >See program calendar</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li>
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // FAQ page — page-local: accordion, category filter, live search.
+      (function () {
+        const items = Array.from(document.querySelectorAll(".faq-item"));
+        const groups = Array.from(document.querySelectorAll(".faq-group"));
+        const filterBtns = document.querySelectorAll(".faq-filters .cal-pill");
+        const searchInput = document.getElementById("faq-search-input");
+        const noResults = document.getElementById("faq-no-results");
+        let currentFilter = "all";
+
+        // Accordion
+        items.forEach((item) => {
+          const btn = item.querySelector(".faq-q");
+          const panel = item.querySelector(".faq-a");
+          btn.addEventListener("click", () => {
+            const isOpen = item.classList.contains("is-open");
+            document.querySelectorAll(".faq-item.is-open").forEach((open) => {
+              if (open !== item) {
+                open.classList.remove("is-open");
+                open
+                  .querySelector(".faq-q")
+                  .setAttribute("aria-expanded", "false");
+                open.querySelector(".faq-a").style.maxHeight = null;
+              }
+            });
+            item.classList.toggle("is-open", !isOpen);
+            btn.setAttribute("aria-expanded", String(!isOpen));
+            panel.style.maxHeight = !isOpen ? panel.scrollHeight + "px" : null;
+          });
+        });
+
+        function applyFilters() {
+          const query = (searchInput.value || "").trim().toLowerCase();
+          let anyVisible = false;
+
+          groups.forEach((group) => {
+            const groupMatchesCategory =
+              currentFilter === "all" ||
+              group.getAttribute("data-group") === currentFilter;
+            let groupHasVisible = false;
+
+            group.querySelectorAll(".faq-item").forEach((item) => {
+              const text = item.textContent.toLowerCase();
+              const matchesQuery = !query || text.includes(query);
+              const show = groupMatchesCategory && matchesQuery;
+              item.style.display = show ? "" : "none";
+              if (show) {
+                groupHasVisible = true;
+                anyVisible = true;
+              }
+            });
+
+            group.style.display = groupHasVisible ? "" : "none";
+          });
+
+          if (noResults) noResults.hidden = anyVisible;
+        }
+
+        filterBtns.forEach((btn) =>
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => b.classList.remove("is-active"));
+            btn.classList.add("is-active");
+            currentFilter = btn.getAttribute("data-filter");
+            applyFilters();
+          }),
+        );
+
+        searchInput.addEventListener("input", applyFilters);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | InCAD — Institute for Capacity Development</title>
+    <meta
+      name="description"
+      content="Get in touch with InCAD for inquiries, partnerships, training programs and consultancy services."
+    />
+    <meta
+      property="og:title"
+      content="Contact Us | InCAD — Institute for Capacity Development"
+    />
+    <meta
+      property="og:description"
+      content="Reach out for inquiries, partnerships, training programs, consultancy services, or organizational support."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ================================================================
+   Contact Page — page-specific styles only.
+   ================================================================ */
+      .page-hero {
+        position: relative;
+        padding: 150px 0 90px;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--purple-deep) 60%,
+          var(--purple) 100%
+        );
+        color: #fff;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%
+          );
+        pointer-events: none;
+      }
+      .page-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-hero h1 {
+        color: #fff;
+        font-size: clamp(2.1rem, 4.2vw, 3rem);
+        margin-bottom: 12px;
+      }
+      .page-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 1.05rem;
+        max-width: 62ch;
+        line-height: 1.6;
+      }
+      .page-hero .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 18px;
+      }
+      .page-hero .breadcrumb a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.2s var(--ease);
+      }
+      .page-hero .breadcrumb a:hover {
+        color: var(--gold-soft);
+      }
+      .page-hero .breadcrumb i {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .page-hero .hero-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 26px;
+      }
+      .page-hero .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.86rem;
+        color: #fff;
+      }
+      .page-hero .hero-badge i {
+        color: var(--gold-soft);
+      }
+
+      /* ---------- Contact layout ---------- */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.35fr;
+        gap: 44px;
+        align-items: start;
+      }
+      @media (max-width: 960px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- Info panel ---------- */
+      .info-box {
+        background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+        color: #fff;
+        padding: 38px 34px;
+        border-radius: var(--radius-m);
+        box-shadow: var(--shadow-md);
+      }
+      .info-box h3 {
+        color: #fff;
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+      .info-box .info-lede {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.92rem;
+        margin-bottom: 26px;
+      }
+      .info-box .row {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+      .info-box .row i {
+        font-size: 1rem;
+        color: var(--gold-soft);
+        margin-top: 3px;
+        flex: 0 0 20px;
+      }
+      .info-box .row div {
+        font-size: 0.92rem;
+        color: rgba(255, 255, 255, 0.92);
+        line-height: 1.6;
+      }
+      .info-box .row a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .info-box .hours {
+        margin-top: 26px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .info-box .hours h4 {
+        color: #fff;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .info-box .hours h4 i {
+        color: var(--gold-soft);
+      }
+      .info-box .hours p {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.88rem;
+        margin-bottom: 2px;
+      }
+      .info-box .whatsapp-note {
+        margin-top: 26px;
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-s);
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.85);
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .info-box .whatsapp-note i {
+        color: #25d366;
+        font-size: 1.1rem;
+        margin-top: 2px;
+      }
+
+      /* ---------- Map ---------- */
+      .map-wrap {
+        margin-top: 24px;
+        border-radius: var(--radius-m);
+        overflow: hidden;
+        border: 1px solid var(--border-cool);
+        box-shadow: var(--shadow-sm);
+      }
+      .map-wrap iframe {
+        width: 100%;
+        height: 260px;
+        border: 0;
+        display: block;
+      }
+      .map-caption {
+        padding: 12px 16px;
+        background: var(--paper);
+        font-size: 0.78rem;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .map-caption i {
+        color: var(--gold);
+      }
+
+      /* ---------- Form ---------- */
+      .form-card {
+        background: var(--surface);
+        border: 1px solid var(--border-cool);
+        border-radius: var(--radius-m);
+        padding: 40px;
+        box-shadow: var(--shadow-sm);
+      }
+      .form-card h3 {
+        color: var(--purple-deep);
+        margin-bottom: 6px;
+      }
+      .form-card .form-sub {
+        margin-bottom: 26px;
+        font-size: 0.92rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 7px;
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 0.9rem;
+      }
+      .form-group label .req {
+        color: #c0392b;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1.5px solid var(--border-cool);
+        border-radius: var(--radius-s);
+        font-size: 0.94rem;
+        font-family: inherit;
+        background: var(--surface);
+        color: var(--ink);
+        transition: border-color 0.2s var(--ease);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--purple);
+      }
+      .form-group textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      .form-group.has-error input,
+      .form-group.has-error select,
+      .form-group.has-error textarea {
+        border-color: #c0392b;
+      }
+      .field-error {
+        display: none;
+        color: #c0392b;
+        font-size: 0.8rem;
+        margin-top: 6px;
+      }
+      .form-group.has-error .field-error {
+        display: block;
+      }
+
+      .consent-group {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-s);
+        padding: 16px 18px;
+        margin-bottom: 22px;
+      }
+      .consent-group input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-top: 2px;
+        flex: 0 0 auto;
+        accent-color: var(--purple);
+      }
+      .consent-group label {
+        font-size: 0.86rem;
+        color: var(--ink);
+        line-height: 1.6;
+        font-weight: 500;
+      }
+      .consent-group a {
+        color: var(--purple-deep);
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      .consent-group.has-error {
+        border-color: #c0392b;
+      }
+      .consent-group .field-error {
+        margin-top: 8px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 1rem;
+      }
+      .submit-note {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 14px;
+      }
+      .submit-note i {
+        color: #25d366;
+      }
+
+      @media (max-width: 640px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .form-card {
+          padding: 28px 22px;
+        }
+      }
+    </style>
+    <link rel="shortcut icon" href="images/logo/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="floating-socials">
+      <a
+        href="https://www.linkedin.com/company/136084675/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link linkedin"
+        aria-label="InCAD on LinkedIn"
+        ><i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a
+        href=" https://www.facebook.com/InstituteforCapacityDevelopment"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link facebook"
+        aria-label="InCAD on Facebook"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
+      <a
+        href="https://www.instagram.com/incadke/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link instagram"
+        aria-label="InCAD on Instagram"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contact">
+          <a href="tel:+254793563553"
+            ><i class="fa-solid fa-phone"></i>0793 563 553</a
+          >
+          <a href="mailto:info@incad.org"
+            ><i class="fa-solid fa-envelope"></i>info@incad.org</a
+          >
+          <span><i class="fa-solid fa-location-dot"></i>Nairobi, Kenya</span>
+        </div>
+        <div class="topbar-ticker" aria-label="Announcements">
+          <div class="ticker-track">
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Enrollment open —
+              2026/2027 program calendar now live</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Request a customized
+              in‑house training for your team</span
+            >
+            <span aria-hidden="true"
+              ><i class="fa-solid fa-circle-info"></i>Regional cohorts running
+              in Arusha &amp; Kampala this quarter</span
+            >
+          </div>
+        </div>
+        <div class="topbar-social">
+          <a
+            href="https://www.linkedin.com/company/136084675/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/InstituteforCapacityDevelopment"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/incadke/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" id="site-header">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <span class="logo-mark"
+            ><img src="./images/logo/logo.png" alt=""
+          /></span>
+          <span class="logo-text"
+            >InCAD<small>Institute for Capacity Development</small></span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="incad-gallery.html">Gallery</a></li>
+          <li><a href="news-blogs.html">News</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="active nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Contact</span>
+          </nav>
+          <h1>Get in touch</h1>
+          <p>
+            We'd love to hear from you. Reach out for inquiries, partnerships,
+            training programs, consultancy services, or organizational support.
+          </p>
+          <div class="hero-badges">
+            <span class="hero-badge"
+              ><i class="fa-brands fa-whatsapp"></i>Sent straight to
+              WhatsApp</span
+            >
+            <span class="hero-badge"
+              ><i class="fa-regular fa-clock"></i>Mon–Fri, 8am–5pm</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact grid -->
+      <section>
+        <div class="container contact-grid">
+          <div data-reveal>
+            <div class="info-box">
+              <h3>Contact Information</h3>
+              <p class="info-lede">
+                InCAD – Institute for Capacity Development
+              </p>
+
+              <div class="row">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>P.O. BOX 2521 – 00621, Nairobi, Kenya</div>
+              </div>
+              <div class="row">
+                <i class="fa-solid fa-phone"></i>
+                <div>0202173685 &nbsp;·&nbsp; +254 722 741 293</div>
+              </div>
+              <div class="row">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <div>
+                  0793 563 553<br />+254 750 589 082<br />+254 739 965 696
+                </div>
+              </div>
+              <div class="row">
+                <i class="fa-solid fa-envelope"></i>
+                <div><a href="mailto:info@incad.org">info@incad.org</a></div>
+              </div>
+              <div class="row">
+                <i class="fa-solid fa-globe"></i>
+                <div>www.incad.org</div>
+              </div>
+
+              <div class="hours">
+                <h4><i class="fa-regular fa-clock"></i>Office Hours</h4>
+                <p>Monday – Friday</p>
+                <p>8:00 AM – 5:00 PM</p>
+              </div>
+
+              <div class="whatsapp-note">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div>
+                  Submitting the form opens WhatsApp with your message
+                  pre‑filled to <strong>+254 722 741 293</strong> — just hit
+                  send from there. Nothing is stored on our server yet; a
+                  dashboard connection is coming soon.
+                </div>
+              </div>
+            </div>
+
+            <div class="map-wrap">
+              <iframe
+                src="https://www.google.com/maps?q=Nairobi,Kenya&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Map showing InCAD's approximate location in Nairobi, Kenya"
+              ></iframe>
+            </div>
+            <p class="map-caption">
+              <i class="fa-solid fa-map-pin"></i>Placeholder map centered on
+              Nairobi — replace with InCAD's exact pin via Google Maps &gt;
+              Share &gt; Embed a map.
+            </p>
+          </div>
+
+          <div class="form-card" data-reveal>
+            <h3>Send Us an Inquiry</h3>
+            <p class="form-sub">
+              Fill in the form below and we'll open WhatsApp with your message
+              ready to send.
+            </p>
+
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group" id="group-fullname">
+                  <label for="fullname"
+                    >Full Name <span class="req">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    maxlength="100"
+                    required
+                  />
+                  <span class="field-error">Please enter your full name.</span>
+                </div>
+                <div class="form-group" id="group-org">
+                  <label for="org">Organization Name</label>
+                  <input type="text" id="org" name="org" maxlength="150" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" id="group-email">
+                  <label for="email"
+                    >Email Address <span class="req">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    maxlength="120"
+                    required
+                  />
+                  <span class="field-error"
+                    >Please enter a valid email address.</span
+                  >
+                </div>
+                <div class="form-group" id="group-phone">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    maxlength="25"
+                    placeholder="+254 7XX XXX XXX"
+                  />
+                  <span class="field-error"
+                    >Please enter a valid phone number.</span
+                  >
+                </div>
+              </div>
+
+              <div class="form-group" id="group-subject">
+                <label for="subject">Subject <span class="req">*</span></label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  maxlength="150"
+                  required
+                />
+                <span class="field-error">Please enter a subject.</span>
+              </div>
+
+              <div class="form-group" id="group-service">
+                <label for="service">Service of Interest</label>
+                <select id="service" name="service">
+                  <option value="">-- Select a Service --</option>
+                  <option>Training &amp; Capacity Development</option>
+                  <option>Research &amp; Surveys</option>
+                  <option>Study Missions</option>
+                  <option>Conference Tourism</option>
+                  <option>Study Abroad &amp; Work Abroad</option>
+                  <option>Performance Contracting Programs</option>
+                  <option>Recruitment &amp; HR Consultancy</option>
+                  <option>Entrepreneurship Development</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="group-message">
+                <label for="message"
+                  >Message / Inquiry <span class="req">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  maxlength="2000"
+                  required
+                ></textarea>
+                <span class="field-error">Please enter your message.</span>
+              </div>
+
+              <div class="consent-group" id="group-consent">
+                <input type="checkbox" id="consent" name="consent" required />
+                <label for="consent"
+                  >I agree to InCAD's
+                  <a href="terms.html" target="_blank" rel="noopener noreferrer"
+                    >Terms of Service</a
+                  >
+                  and
+                  <a
+                    href="privacy.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Privacy Policy</a
+                  >, and I consent to InCAD contacting me about this inquiry.
+                  <span class="field-error" style="display: block"
+                    >Please accept the Terms of Service and Privacy Policy to
+                    continue.</span
+                  >
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary submit-btn">
+                Send Inquiry via WhatsApp <i class="fa-brands fa-whatsapp"></i>
+              </button>
+              <p class="submit-note">
+                <i class="fa-brands fa-whatsapp"></i>Opens WhatsApp in a new tab
+                with your message pre‑filled
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-banner">
+        <div class="cta-shape shape-a" aria-hidden="true"></div>
+        <div class="cta-shape shape-b" aria-hidden="true"></div>
+        <div class="container cta-content">
+          <i class="fa-solid fa-handshake cta-icon"></i>
+          <h2>Prefer to talk it through first?</h2>
+          <p>
+            Call or WhatsApp us directly, we're happy to scope your program
+            before you fill out any form.
+          </p>
+          <div class="cta-actions">
+            <a href="tel:+254722741293" class="btn btn-outline btn-lg"
+              >Call +254 722 741 293</a
+            >
+            <a
+              href="https://wa.me/254722741293"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost-light"
+              >Chat on WhatsApp</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo">
+            <span class="logo-mark"
+              ><img src="./images/logo/logo.png" alt=""
+            /></span>
+            <span class="logo-text"
+              >InCAD<small>Institute for Capacity Development</small></span
+            >
+          </a>
+          <p>
+            Building capacity through research, training and professional
+            development since 2011.
+          </p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="services.html#training-capacity-development"
+                >Training &amp; Capacity Development</a
+              >
+            </li>
+            <li>
+              <a href="services.html#research-surveys"
+                >Research &amp; Surveys</a
+              >
+            </li>
+            <li><a href="services.html#study-missions">Study Missions</a></li>
+            <li>
+              <a href="services.html#conference-tourism">Conference Tourism</a>
+            </li>
+            <!-- <li>
+              <a href="services.html#study-work-abroad"
+                >Study Abroad &amp; Work Abroad</a
+              >
+            </li>
+            <li>
+              <a href="services.html#performance-contracting"
+                >Performance Contracting Programs</a
+              >
+            </li> -->
+            <li>
+              <a href="services.html#recruitment-hr"
+                >Recruitment &amp; HR Consultancy</a
+              >
+            </li>
+            <li>
+              <a href="services.html#entrepreneurship-development"
+                >Entrepreneurship Development</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><i class="fa-solid fa-location-dot"></i> P.O. BOX 2521 – 00621</p>
+          <p>
+            <i class="fa-solid fa-phone"></i> 0202173685 &nbsp;·&nbsp; +254 722
+            741 293
+          </p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@incad.org">info@incad.org</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://www.incad.org">www.incad.org</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span
+          >&copy; <span id="year"></span> InCAD – Institute for Capacity
+          Development. All rights reserved.</span
+        >
+        <span
+          >Powered by
+          <a
+            href="https://www.eontechsystems.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >EonTech Systems</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+    <script>
+      // Contact form — validates, builds a WhatsApp message, opens wa.me.
+      // No server call yet: per current scope, submissions go straight to
+      // WhatsApp until a backend dashboard is connected.
+      (function () {
+        const WHATSAPP_NUMBER = "254722741293"; // +254 722 741 293, no leading +/0
+        const form = document.getElementById("contactForm");
+        if (!form) return;
+
+        const fields = {
+          fullname: document.getElementById("fullname"),
+          org: document.getElementById("org"),
+          email: document.getElementById("email"),
+          phone: document.getElementById("phone"),
+          subject: document.getElementById("subject"),
+          service: document.getElementById("service"),
+          message: document.getElementById("message"),
+          consent: document.getElementById("consent"),
+        };
+
+        function setError(groupId, hasError) {
+          const group = document.getElementById(groupId);
+          if (group) group.classList.toggle("has-error", hasError);
+        }
+
+        function validate() {
+          let valid = true;
+
+          const nameOk = fields.fullname.value.trim().length > 0;
+          setError("group-fullname", !nameOk);
+          valid = valid && nameOk;
+
+          const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+            fields.email.value.trim(),
+          );
+          setError("group-email", !emailOk);
+          valid = valid && emailOk;
+
+          const phoneVal = fields.phone.value.trim();
+          const phoneOk =
+            phoneVal === "" || /^[+0-9()\-\s]{7,25}$/.test(phoneVal);
+          setError("group-phone", !phoneOk);
+          valid = valid && phoneOk;
+
+          const subjectOk = fields.subject.value.trim().length > 0;
+          setError("group-subject", !subjectOk);
+          valid = valid && subjectOk;
+
+          const messageOk = fields.message.value.trim().length > 0;
+          setError("group-message", !messageOk);
+          valid = valid && messageOk;
+
+          const consentOk = fields.consent.checked;
+          setError("group-consent", !consentOk);
+          valid = valid && consentOk;
+
+          return valid;
+        }
+
+        function buildWhatsAppMessage() {
+          const name = fields.fullname.value.trim();
+          const org = fields.org.value.trim();
+          const email = fields.email.value.trim();
+          const phone = fields.phone.value.trim();
+          const subject = fields.subject.value.trim();
+          const service = fields.service.value;
+          const message = fields.message.value.trim();
+
+          let text = "Hello InCAD, I am " + name;
+          if (org) text += " from " + org;
+          text += ".\n\n";
+          if (service) {
+            text += "I am interested in " + service + ".\n";
+          } else {
+            text += "I am interested in learning more about your programs.\n";
+          }
+          text += "Subject: " + subject + "\n";
+          text += message + "\n\n";
+          text += "My contact details:\n";
+          text += "Email: " + email + "\n";
+          if (phone) text += "Phone: " + phone + "\n";
+          text += "\nLooking forward to engaging with you.\n\n";
+          text += "Warm regards,\n" + name;
+
+          return text;
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!validate()) {
+            const firstError = form.querySelector(".has-error");
+            if (firstError)
+              firstError.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            return;
+          }
+
+          const message = buildWhatsAppMessage();
+          const url =
+            "https://wa.me/" +
+            WHATSAPP_NUMBER +
+            "?text=" +
+            encodeURIComponent(message);
+
+          const openWhatsApp = () => {
+            window.open(url, "_blank", "noopener,noreferrer");
+            form.reset();
+            document
+              .querySelectorAll(
+                ".form-group.has-error, .consent-group.has-error",
+              )
+              .forEach((g) => g.classList.remove("has-error"));
+          };
+
+          if (window.Swal) {
+            window.Swal.fire({
+              icon: "success",
+              title: "Opening WhatsApp…",
+              text: "We've pre‑filled your message — just hit send from WhatsApp.",
+              confirmButtonColor: "#4d2682",
+              timer: 1800,
+              showConfirmButton: false,
+            }).then(openWhatsApp);
+          } else {
+            openWhatsApp();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
